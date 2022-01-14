@@ -2,19 +2,20 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
-import Header from "./Header";
 import Hello from "./Hello";
 import AboutMe from "./AboutMe";
 import Skills from "./Skills";
 import Works from "./Works";
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-scroll";
 import Dots from "./Dots";
 
 const GlobalStyle = createGlobalStyle`
-// fonts
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400&display=swap');
-  
+@font-face {
+    font-family: 'NeoDunggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 html, body, div, span, applet, object, iframe,
   h1, h2, h3, h4, h5, h6, p, blockquote, pre,
   a, abbr, acronym, address, big, cite, code,
@@ -66,7 +67,7 @@ html, body, div, span, applet, object, iframe,
     box-sizing: border-box;
   }
   body{
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'NeoDunggeunmo';
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
     overflow-y: hidden;
