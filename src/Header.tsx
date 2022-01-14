@@ -1,3 +1,4 @@
+import { Link } from "react-scroll";
 import styled from "styled-components";
 
 const HeaderUl = styled.ul`
@@ -9,9 +10,16 @@ const HeaderUl = styled.ul`
     position: fixed;
 `;
 const HeaderLi = styled.li`
+cursor: pointer;
 `;
 
-function Header() {
+interface IScrollProps {
+    scrollIndex: number;
+}
+
+function Header({ scrollIndex }: IScrollProps) {
+    console.log(scrollIndex);
+
 
     return (
         <div>

@@ -7,7 +7,9 @@ import Hello from "./Hello";
 import AboutMe from "./AboutMe";
 import Skills from "./Skills";
 import Works from "./Works";
-import React, { MouseEvent, useEffect, useRef, WheelEventHandler } from "react";
+import React, { useEffect, useRef, useState } from "react";
+import { Link } from "react-scroll";
+import Dots from "./Dots";
 
 const GlobalStyle = createGlobalStyle`
 // fonts
@@ -98,6 +100,7 @@ const DIVIDER_HEIGHT = 5;
 function App() {
   const isDark = useRecoilValue(isDarkAtom);
   const outerDivRef = useRef<HTMLDivElement | any>();
+  const [scrollIndex, setScrollIndex] = useState(1);
 
   useEffect(() => {
     const wheelHandler = (e: any) => {
@@ -115,6 +118,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(2);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
           console.log("현재 2페이지, down");
@@ -123,6 +127,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(3);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
           console.log("현재 3페이지, down");
@@ -131,6 +136,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+
         } else {
           // 현재 3페이지
           console.log("현재 4페이지, down");
@@ -139,6 +145,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(4);
         }
       } else {
         // 스크롤 올릴 때
@@ -150,6 +157,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(1);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
           console.log("현재 2페이지, up");
@@ -158,6 +166,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(1);
         }
         else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
           //현재 2페이지
@@ -167,6 +176,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(2);
         } else {
           // 현재 3페이지
           console.log("현재 4페이지, up");
@@ -175,6 +185,7 @@ function App() {
             left: 0,
             behavior: "smooth",
           });
+          setScrollIndex(3);
         }
       }
     };
@@ -191,7 +202,7 @@ function App() {
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Outer ref={outerDivRef}>
-          <Header />
+          <Dots scrollIndex={scrollIndex}></Dots>
           <Hello />
           <Divider />
           <AboutMe />

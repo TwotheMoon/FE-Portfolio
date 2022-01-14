@@ -16,7 +16,7 @@ function Hello() {
     return (
         <Section>
             <Contents>Hello</Contents>
-        </Section>
+        </Section >
     );
 }
 
