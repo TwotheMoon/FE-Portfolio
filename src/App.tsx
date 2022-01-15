@@ -8,6 +8,7 @@ import Skills from "./Skills";
 import Works from "./Works";
 import React, { useEffect, useRef, useState } from "react";
 import Dots from "./Dots";
+import Header from "./Header";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -70,7 +71,7 @@ html, body, div, span, applet, object, iframe,
     font-family: 'NeoDunggeunmo';
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
-    overflow-y: hidden;
+    overflow-y: auto;
   }
   a{
     text-decoration:none;
@@ -102,6 +103,10 @@ function App() {
   const isDark = useRecoilValue(isDarkAtom);
   const outerDivRef = useRef<HTMLDivElement | any>();
   const [scrollIndex, setScrollIndex] = useState(1);
+  const helloRef = useRef<HTMLDivElement>(null);
+  const aboutRef = useRef<HTMLDivElement>(null);
+  const skillsRef = useRef<HTMLDivElement>(null);
+  const worksRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const wheelHandler = (e: any) => {
@@ -113,7 +118,6 @@ function App() {
         // 스크롤 내릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
           //현재 1페이지
-          console.log("현재 1페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight + DIVIDER_HEIGHT,
             left: 0,
@@ -122,7 +126,6 @@ function App() {
           setScrollIndex(2);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
-          console.log("현재 2페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 2 + DIVIDER_HEIGHT * 2,
             left: 0,
@@ -131,7 +134,6 @@ function App() {
           setScrollIndex(3);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
-          console.log("현재 3페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 3 + DIVIDER_HEIGHT * 2,
             left: 0,
@@ -140,7 +142,6 @@ function App() {
 
         } else {
           // 현재 3페이지
-          console.log("현재 4페이지, down");
           outerDivRef.current.scrollTo({
             top: pageHeight * 4 + DIVIDER_HEIGHT * 2,
             left: 0,
@@ -152,7 +153,6 @@ function App() {
         // 스크롤 올릴 때
         if (scrollTop >= 0 && scrollTop < pageHeight) {
           //현재 1페이지
-          console.log("현재 1페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
@@ -161,7 +161,6 @@ function App() {
           setScrollIndex(1);
         } else if (scrollTop >= pageHeight && scrollTop < pageHeight * 2) {
           //현재 2페이지
-          console.log("현재 2페이지, up");
           outerDivRef.current.scrollTo({
             top: 0,
             left: 0,
@@ -171,7 +170,6 @@ function App() {
         }
         else if (scrollTop >= pageHeight && scrollTop < pageHeight * 3) {
           //현재 2페이지
-          console.log("현재 3페이지, up");
           outerDivRef.current.scrollTo({
             top: pageHeight + DIVIDER_HEIGHT,
             left: 0,
@@ -180,7 +178,6 @@ function App() {
           setScrollIndex(2);
         } else {
           // 현재 3페이지
-          console.log("현재 4페이지, up");
           outerDivRef.current.scrollTo({
             top: pageHeight * 2 + DIVIDER_HEIGHT,
             left: 0,
@@ -198,19 +195,44 @@ function App() {
     }
   }, []);
 
+  const onHomeClick = () => {
+    helloRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(1);
+  };
+  const onAboutClick = () => {
+    aboutRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(2);
+  };
+  const onSkillsClick = () => {
+    skillsRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(3);
+  };
+  const onWorksClick = () => {
+    worksRef.current?.scrollIntoView({ behavior: 'smooth' });
+    setScrollIndex(4);
+  };
+
   return (
     <>
       <ThemeProvider theme={isDark ? darkTheme : lightTheme}>
         <GlobalStyle />
         <Outer ref={outerDivRef}>
-          <Dots scrollIndex={scrollIndex}></Dots>
-          <Hello />
+          <div ref={helloRef}>
+            <Hello />
+          </div>
           <Divider />
-          <AboutMe />
+          <div ref={aboutRef}>
+            <AboutMe />
+          </div>
           <Divider />
-          <Skills />
+          <div ref={skillsRef}>
+            <Skills />
+          </div>
           <Divider />
-          <Works />
+          <div ref={worksRef}>
+            <Works />
+          </div>
+          <Dots onDotClick={{ onHomeClick, onAboutClick, onSkillsClick, onWorksClick }} scrollIndex={scrollIndex}></Dots>
         </Outer>
       </ThemeProvider>
     </>

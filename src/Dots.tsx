@@ -1,9 +1,13 @@
+
 interface DotProps {
     num?: number,
     scrollIndex: number,
+    onClick?: any,
+    onDotClick?: any
 }
 
-const Dot = ({ num, scrollIndex }: DotProps) => {
+const Dot = ({ num, scrollIndex, onDotClick }: DotProps) => {
+
     return (
         <div
             style={{
@@ -13,13 +17,22 @@ const Dot = ({ num, scrollIndex }: DotProps) => {
                 borderRadius: 999,
                 backgroundColor: scrollIndex === num ? "white" : "transparent",
                 transition: "background-color 1.0s",
-
+                cursor: "pointer",
+                userSelect: "none",
             }}
-        ></div>
+        >
+            <span style={{ marginLeft: 15 }}>
+                {scrollIndex === num && scrollIndex === 1 ? "Hello" : null}
+                {scrollIndex === num && scrollIndex === 2 ? "About" : null}
+                {scrollIndex === num && scrollIndex === 3 ? "Skills" : null}
+                {scrollIndex === num && scrollIndex === 4 ? "Works" : null}
+            </span>
+        </div>
     );
 };
 
-const Dots = ({ scrollIndex }: DotProps) => {
+const Dots = ({ scrollIndex, onDotClick }: DotProps) => {
+
     return (
         <div style={{ position: "fixed", top: "50%", right: 100 }}>
             <div
@@ -32,12 +45,20 @@ const Dots = ({ scrollIndex }: DotProps) => {
                     height: 100,
                 }}
             >
-                <Dot num={1} scrollIndex={scrollIndex}></Dot>
-                <Dot num={2} scrollIndex={scrollIndex}></Dot>
-                <Dot num={3} scrollIndex={scrollIndex}></Dot>
-                <Dot num={4} scrollIndex={scrollIndex}></Dot>
-            </div>
-        </div>
+                <div onClick={onDotClick.onHomeClick}>
+                    <Dot num={1} scrollIndex={scrollIndex} />
+                </div>
+                <div onClick={onDotClick.onAboutClick}>
+                    <Dot num={2} scrollIndex={scrollIndex} />
+                </div>
+                <div onClick={onDotClick.onSkillsClick}>
+                    <Dot num={3} scrollIndex={scrollIndex} />
+                </div>
+                <div onClick={onDotClick.onWorksClick}>
+                    <Dot num={4} scrollIndex={scrollIndex} />
+                </div>
+            </div >
+        </div >
     );
 };
 
