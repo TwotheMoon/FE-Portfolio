@@ -72,6 +72,7 @@ html, body, div, span, applet, object, iframe,
     background-color: ${(props) => props.theme.bgColor};
     color: ${(props) => props.theme.textColor};
     overflow-y: auto;
+
   }
   a{
     text-decoration:none;
