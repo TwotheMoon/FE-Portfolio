@@ -1,5 +1,11 @@
 {
   "compilerOptions": {
+    "typeRoots": [
+      "./types",
+      "./node_modules/@types"
+    ], // 보통 types 폴더를 만들어 타입 정의
+    "declaration": true, // lib 만들 때 .d.ts 파일을 자동으로
+    "declarationDir": "./types", // 이 폴더에 만들어주는 옵션
     "target": "es5",
     "lib": [
       "dom",
@@ -22,6 +28,7 @@
   },
   "include": [
     "src",
-    "Router.tsx"
+    "Router.tsx",
+    "types/typing-effect-reactjs/index.d.ts"
   ]
 }
