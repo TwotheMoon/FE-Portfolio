@@ -59,7 +59,7 @@ function Hello() {
                 <Blank />
                 <Typing
                     text={textArry}
-                    typeSpeed={300}
+                    typeSpeed={200}
                     deleteSpeed={200}
                     disablebBlinkingOnEnd={false}
                     blinkingSpeed={530}
@@ -71,7 +71,7 @@ function Hello() {
                 <Typing
                     text={myName}
                     ignoreInitialDelay={true}
-                    typeSpeed={800}
+                    typeSpeed={600}
                     deleteSpeed={200}
                     disablebBlinkingOnEnd={true}
                 />
