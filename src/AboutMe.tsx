@@ -124,25 +124,29 @@ const IconImg = styled.img`
 `;
 
 const QrWrap = styled.div`
-margin-left: 400px;
-margin-top: -50px;
+margin-left: 100px;
+margin-top: -80px;
 `;
 
-const QrImg = styled.img`
+const QrImgA = styled.img`
+position: absolute;
     width: 200px;
     height: 200px;
     user-select: none;
-    margin-left: 40px;
-    &:hover{
-        width: 300px;
-        height: 300px;
-        transition: ease-in-out 0.3s;
-   }
+    margin-left: 200px;
+
+`;
+const QrImgB = styled.img`
+position: absolute;
+    width: 200px;
+    height: 200px;
+    user-select: none;
+
 `;
 
 const CoinIconWrap = styled.div`
     position: absolute;
-    bottom: 30px;
+    bottom: 80px;
 `;
 
 const coinAAnimation = keyframes`
@@ -300,8 +304,8 @@ function AboutMe() {
                 </ProfileImg>
             </ProfileWrap>
             <QrWrap>
-                <QrImg src={moonPageQR} />
-                <QrImg src={moonGit} />
+                <QrImgA src={moonPageQR} />
+                <QrImgB src={moonGit} />
             </QrWrap>
             <div>
                 <BottomImg />

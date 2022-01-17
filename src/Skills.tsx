@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import ApexChart from "react-apexcharts";
 
 const Section = styled.div`
     width: 100%;
@@ -16,7 +17,20 @@ function Skills() {
     return (
         <Section>
             <Contents>Skills</Contents>
-        </Section>
+            <ApexChart
+                type="radialBar"
+                series={[60]}
+                options={{
+                    chart: {
+                        height: 350,
+                    },
+
+                }}
+
+            >
+
+            </ApexChart>
+        </Section >
     );
 }
 
