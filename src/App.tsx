@@ -8,7 +8,6 @@ import Skills from "./Components/Skills";
 import Works from "./Components/Works";
 import React, { useEffect, useRef, useState } from "react";
 import Dots from "./Components/Dots";
-import Header from "./Components/Header";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {

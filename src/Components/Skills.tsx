@@ -1,22 +1,27 @@
 import styled from "styled-components";
+import ApexChart from "./ApexChart";
 import htmlLogo from "../img/html5.png";
 import cssLogo from "../img/css3.png";
 import jsLogo from "../img/javascript.png";
 import reactLogo from "../img/reactLogo.png";
-import ApexChart from "./ApexChart";
+import nodeIcon from "../img/nodejsIcon.png";
 
 const Section = styled.div`
     width: 100%;
     height: 100vh;
-    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 `;
 
 const Contents = styled.div`
-   height: 100%;
+   width: 1100px;
+   height: 800px;
    display: flex;
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
+    border: 1px solid red;
 `;
 
 const ChartWrap = styled.div`
@@ -39,13 +44,13 @@ function Skills() {
                     <ApexChart logo={cssLogo} percent={70} color={'#2A9EFA'} />
                 </ChartWrap>
                 <ChartWrap>
-                    <ApexChart logo={jsLogo} percent={65} color={'#E6A329'} />
+                    <ApexChart logo={jsLogo} percent={60} color={'#E6A329'} />
                 </ChartWrap>
                 <ChartWrap>
-                    <ApexChart logo={reactLogo} percent={70} color={'#61DAFB'} />
+                    <ApexChart logo={reactLogo} percent={55} color={'#61DAFB'} />
                 </ChartWrap>
                 <ChartWrap>
-                    <ApexChart logo={reactLogo} percent={70} color={'#61DAFB'} />
+                    <ApexChart logo={nodeIcon} percent={20} color={'#88C043'} />
                 </ChartWrap>
 
             </Contents>

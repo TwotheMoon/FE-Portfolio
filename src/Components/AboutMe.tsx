@@ -22,30 +22,35 @@ import youtube from "../img/youtube-brands.svg";
 import React, { useState } from "react";
 
 const Section = styled.div`
-    position: relative;
     width: 100%;
     height: 100vh;
-    border: 1px solid green;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    `;
+const Contents = styled.div`
+    width: 100%;
+    height: 900px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-
-    `;
+ `;
 
 const ProfileWrap = styled.div`
-display: flex;
+    display: flex;
 
 `;
 const ProfileImg = styled.div`
         position: relative;
         width: 400px;
         height: 400px;
+        margin-top: 50px;
         background-image: url(${profileImg});
         background-repeat:no-repeat;
         background-size: cover;
         user-select: none;
         border-radius: 50%;
-        margin-top: 50px;
         margin-left: 20px;
         
     `;
@@ -294,96 +299,98 @@ function AboutMe() {
 
     return (
         <Section>
-            <ProfileWrap>
-                <EngelMushroom src={engelMushroom} />
-                <DialogA>
-                    <TapWrap>
-                        <Tap onClick={activeTab1} active={active === 0}>About Me</Tap>
-                        <Tap onClick={activeTab2} active={active === 1}>Education</Tap>
-                    </TapWrap>
-                    <About>
-                        {active === 0 ?
-                            (
-                                <>
-                                    <div>
-                                        <IconImg src={user} />
-                                        <span>임형오</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={birth} />
-                                        <span>94.02.15</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={address} />
-                                        <span>관악구 문성로 16가길 31</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={phone} />
-                                        <span>010-2324-6241</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={email} />
-                                        <span>dlaguddh1@gmail.com</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={school} />
-                                        <span>학점은행제 정보보호학 전공 중</span>
-                                    </div>
-                                    <div>
-                                        <IconImg src={certificate} />
-                                        <span>
-                                            네트워크 관리사2급 <br />
-                                            &nbsp;&nbsp;&nbsp;&nbsp;SQLD 개발자
-                                        </span>
-                                    </div>
-                                </>
-                            )
-                            : (
-                                <>
-                                    <div>
-                                        <span>2021.12 ~ 2021.02</span><br />
-                                        <IconImg src={reactBrands} />
-                                        <span>[프론트엔드 개발] React JS</span>
-                                    </div><br />
-                                    <div>
-                                        <span>2021.06 ~ 2021.11</span> <br />
-                                        <IconImg src={javaBrands} />
-                                        <span>[자바 빅데이터 기반] 개발자과정</span>
-                                    </div><br />
-                                    <div>
-                                        <span>2020.11 ~ </span> <br />
-                                        <IconImg src={shield} />
-                                        <span>정보보호학 학사 전공</span>
-                                    </div><br />
-                                    <div>
-                                        <span>Always Studing </span> <br />
-                                        <IconImg src={youtube} />
-                                        <span>Nomard Coder, Dream Coding Ellie</span>
-                                    </div>
+            <Contents>
+                <ProfileWrap>
+                    <EngelMushroom src={engelMushroom} />
+                    <DialogA>
+                        <TapWrap>
+                            <Tap onClick={activeTab1} active={active === 0}>About Me</Tap>
+                            <Tap onClick={activeTab2} active={active === 1}>Education</Tap>
+                        </TapWrap>
+                        <About>
+                            {active === 0 ?
+                                (
+                                    <>
+                                        <div>
+                                            <IconImg src={user} />
+                                            <span>임형오</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={birth} />
+                                            <span>94.02.15</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={address} />
+                                            <span>관악구 문성로 16가길 31</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={phone} />
+                                            <span>010-2324-6241</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={email} />
+                                            <span>dlaguddh1@gmail.com</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={school} />
+                                            <span>학점은행제 정보보호학 전공 중</span>
+                                        </div>
+                                        <div>
+                                            <IconImg src={certificate} />
+                                            <span>
+                                                네트워크 관리사2급 <br />
+                                                &nbsp;&nbsp;&nbsp;&nbsp;SQLD 개발자
+                                            </span>
+                                        </div>
+                                    </>
+                                )
+                                : (
+                                    <>
+                                        <div>
+                                            <span>2021.12 ~ 2021.02</span><br />
+                                            <IconImg src={reactBrands} />
+                                            <span>[프론트엔드 개발] React JS</span>
+                                        </div><br />
+                                        <div>
+                                            <span>2021.06 ~ 2021.11</span> <br />
+                                            <IconImg src={javaBrands} />
+                                            <span>[자바 빅데이터 기반] 개발자과정</span>
+                                        </div><br />
+                                        <div>
+                                            <span>2020.11 ~ </span> <br />
+                                            <IconImg src={shield} />
+                                            <span>정보보호학 학사 전공</span>
+                                        </div><br />
+                                        <div>
+                                            <span>Always Studing </span> <br />
+                                            <IconImg src={youtube} />
+                                            <span>Nomard Coder, Dream Coding Ellie</span>
+                                        </div>
 
-                                </>
-                            )
-                        }
+                                    </>
+                                )
+                            }
 
-                        <CoinIconWrap>
-                            <MarioIcon src={marioIcon} />
-                            <CoinIconA src={coinIcon} />
-                            <CoinIconB src={coinIcon} />
-                            <CoinIcon src={coinIcon} />
-                        </CoinIconWrap>
-                    </About>
-                </DialogA>
-                <ProfileImg>
-                    <PropleMushroom src={propelMushroom} />
-                </ProfileImg>
-            </ProfileWrap>
-            <QrWrap>
-                <QrImgA src={moonPageQR} />
-                <QrImgB src={moonGit} />
-            </QrWrap>
-            <div>
-                <BottomImg />
-            </div>
+                            <CoinIconWrap>
+                                <MarioIcon src={marioIcon} />
+                                <CoinIconA src={coinIcon} />
+                                <CoinIconB src={coinIcon} />
+                                <CoinIcon src={coinIcon} />
+                            </CoinIconWrap>
+                        </About>
+                    </DialogA>
+                    <ProfileImg>
+                        <PropleMushroom src={propelMushroom} />
+                    </ProfileImg>
+                </ProfileWrap>
+                <QrWrap>
+                    <QrImgA src={moonPageQR} />
+                    <QrImgB src={moonGit} />
+                </QrWrap>
+                <div>
+                    <BottomImg />
+                </div>
+            </Contents>
         </Section>
     );
 }
