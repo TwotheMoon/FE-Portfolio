@@ -6,6 +6,8 @@ import jsLogo from "../img/javascript.png";
 import reactLogo from "../img/reactLogo.png";
 import nodeIcon from "../img/nodejsIcon.png";
 import typescriptIcon from "../img/TypescriptLogo.png";
+import computer from "../img/computer.gif";
+import rockman from "../img/rockMan.gif";
 import { useState } from "react";
 import SubSkillsChart from "./SubSkillsChart";
 
@@ -94,8 +96,40 @@ const Button = styled.button`
     cursor: pointer;
     font-family: "NeoDunggeunmo";
 `;
+const ComputerImg = styled.img`
+    position: absolute;
+     width: 80px;
+     height: 80px;
+     bottom: 10px;
+     right: 10px;
+`;
 
+const rockmanAnimation = keyframes`
+    0%{
+        transform: translateX(0);
+    }
+    50%{
+        transform: translateX(400px);
+    }
+    51%{
+        transform: translateX(400px) scaleX(-1);
+    }
+    99%{
+        transform: translateX(0px) scaleX(-1);
+    }
+    100%{  
+        transform: translateX(0) scaleX(1);
+    }
+`;
 
+const Rockman = styled.img`
+    position: absolute;
+    width: 70px;
+    height: 70px;
+    top: -70px;
+    left: 300px;
+    animation: ${rockmanAnimation} 7s ease-in-out infinite;
+`;
 
 function Skills() {
     const [click, setClick] = useState(true);
@@ -106,6 +140,7 @@ function Skills() {
     return (
         <Section>
             <Contents>
+                <Rockman src={rockman} />
                 {click === true ? (
                     <Title>Main Skills</Title>
                 ) : (
@@ -123,6 +158,7 @@ function Skills() {
                 {click === true ?
                     (
                         <>
+                            <ComputerImg src={computer} />
                             <ChartWrap>
                                 <ApexChart logo={htmlLogo} percent={85} color={'#E44D26'} />
                                 <ChartText>HTML5</ChartText>

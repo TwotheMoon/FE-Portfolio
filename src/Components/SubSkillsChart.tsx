@@ -30,7 +30,7 @@ function SubSkillsChart() {
                     colors: ['#DE0000', '#DE6B1F', '#6AAD3E', '#F72404', '#A5978B', '#CB4525', '#1757B7', '#E373F6',
                         '#9494F7'],
                     dataLabels: {
-                        enabled: true,
+                        enabled: false,
                         textAnchor: 'start',
                         style: {
                             colors: ['white']
@@ -57,12 +57,12 @@ function SubSkillsChart() {
                         }
                     },
                     title: {
-                        text: 'Custom DataLabels',
+                        text: 'Sub Skills',
                         align: 'center',
                         floating: true
                     },
                     subtitle: {
-                        text: 'Category Names as DataLabels inside bars',
+                        text: '하나 이상의 프로젝트로 경험 해본 언어 & 툴 입니다.',
                         align: 'center',
                     },
                     tooltip: {

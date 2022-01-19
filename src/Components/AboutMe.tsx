@@ -108,6 +108,8 @@ const mushroomAnimation = keyframes`
     `;
 
 const EngelMushroom = styled.img`
+    margin-top: 40px;
+    margin-right: 30px;
     width: 50px;
     height: 40px;
     animation: ${mushroomAnimation} 10s ease-in-out infinite;
@@ -348,7 +350,7 @@ function AboutMe() {
                                     <>
                                         <div>
                                             <span>2021.12 ~ 2021.02</span><br />
-                                            <IconImg src={reactBrands} />
+                                            <IconImg className="reactIcon" src={reactBrands} />
                                             <span>[프론트엔드 개발] React JS</span>
                                         </div><br />
                                         <div>
@@ -370,7 +372,6 @@ function AboutMe() {
                                     </>
                                 )
                             }
-
                             <CoinIconWrap>
                                 <MarioIcon src={marioIcon} />
                                 <CoinIconA src={coinIcon} />
