@@ -15,6 +15,11 @@ import coinIcon from "../img/pngwing.com.png";
 import marioIcon from "../img/mario.gif";
 import engelMushroom from "../img/engelMushroom.gif";
 import propelMushroom from "../img/propelMushroom.gif";
+import reactBrands from "../img/react-brands.svg";
+import javaBrands from "../img/java-brands.svg";
+import shield from "../img/shield-duotone.svg";
+import youtube from "../img/youtube-brands.svg";
+import React, { useState } from "react";
 
 const Section = styled.div`
     position: relative;
@@ -104,19 +109,19 @@ const EngelMushroom = styled.img`
     `;
 
 const About = styled.div`
-position: relative;
-            width: 300px;
-            height: 600px;
-            margin-left: 45px;
-            margin-top: 100px;
-            div{
-                margin-top: 15px;
-            }
-            div span{
-                font-size: 18px;
-            }
-            
-        `;
+    position: relative;
+    width: 350px;
+    height: 600px;
+    margin-left: 45px;
+    margin-top: 100px;
+    div{
+        margin-top: 15px;
+    }
+    div span{
+        font-size: 18px;
+        color: #F9EBDE;
+    }
+`;
 const IconImg = styled.img`
     width: 20px;
      height: 20px; 
@@ -249,48 +254,117 @@ const BottomImg = styled.div`
     left: 0;
     opacity: 0.8;
 `;
+const TapWrap = styled.div`
+position: absolute;
+top: 42px;
+margin-left: 46px;
+`;
 
+const Tap = styled.button <{ active: boolean }> `
+    font-family: "NeoDunggeunmo";
+    font-size: 15px;
+    height: 30px;
+    width: 90px;
+    border: none;
+    background-color: ${(props) => props.active ? "rgba(95, 144, 196, 1)" : "rgba(50, 100, 150, 1)"};
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    margin-right: 5px;
+    cursor: pointer;
+
+`;
 
 
 function AboutMe() {
+    const [active, setActive] = useState(0);
+    const activeTab1 = (() => {
+        if (active === 0) return;
+        if (active === 1) {
+            setActive(0);
+        }
+        console.log(active);
+    });
+    const activeTab2 = (() => {
+        if (active === 1) return;
+        if (active === 0) {
+            setActive(1);
+        }
+        console.log(active);
+    });
 
     return (
         <Section>
             <ProfileWrap>
                 <EngelMushroom src={engelMushroom} />
                 <DialogA>
+                    <TapWrap>
+                        <Tap onClick={activeTab1} active={active === 0}>About Me</Tap>
+                        <Tap onClick={activeTab2} active={active === 1}>Education</Tap>
+                    </TapWrap>
                     <About>
-                        <div>
-                            <IconImg src={user} />
-                            <span>임형오</span>
-                        </div>
-                        <div>
-                            <IconImg src={birth} />
-                            <span>94.02.15</span>
-                        </div>
-                        <div>
-                            <IconImg src={address} />
-                            <span>관악구 문성로 16가길 31</span>
-                        </div>
-                        <div>
-                            <IconImg src={phone} />
-                            <span>010-2324-6241</span>
-                        </div>
-                        <div>
-                            <IconImg src={email} />
-                            <span>dlaguddh1@gmail.com</span>
-                        </div>
-                        <div>
-                            <IconImg src={school} />
-                            <span>학점은행제 정보보호학 전공 중</span>
-                        </div>
-                        <div>
-                            <IconImg src={certificate} />
-                            <span>
-                                네트워크 관리사2급 <br />
-                                &nbsp;&nbsp;&nbsp;&nbsp;SQLD 개발자
-                            </span>
-                        </div>
+                        {active === 0 ?
+                            (
+                                <>
+                                    <div>
+                                        <IconImg src={user} />
+                                        <span>임형오</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={birth} />
+                                        <span>94.02.15</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={address} />
+                                        <span>관악구 문성로 16가길 31</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={phone} />
+                                        <span>010-2324-6241</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={email} />
+                                        <span>dlaguddh1@gmail.com</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={school} />
+                                        <span>학점은행제 정보보호학 전공 중</span>
+                                    </div>
+                                    <div>
+                                        <IconImg src={certificate} />
+                                        <span>
+                                            네트워크 관리사2급 <br />
+                                            &nbsp;&nbsp;&nbsp;&nbsp;SQLD 개발자
+                                        </span>
+                                    </div>
+                                </>
+                            )
+                            : (
+                                <>
+                                    <div>
+                                        <span>2021.12 ~ 2021.02</span><br />
+                                        <IconImg src={reactBrands} />
+                                        <span>[프론트엔드 개발] React JS</span>
+                                    </div><br />
+                                    <div>
+                                        <span>2021.06 ~ 2021.11</span> <br />
+                                        <IconImg src={javaBrands} />
+                                        <span>[자바 빅데이터 기반] 개발자과정</span>
+                                    </div><br />
+                                    <div>
+                                        <span>2020.11 ~ </span> <br />
+                                        <IconImg src={shield} />
+                                        <span>정보보호학 학사 전공</span>
+                                    </div><br />
+                                    <div>
+                                        <span>Always Studing </span> <br />
+                                        <IconImg src={youtube} />
+                                        <span>Nomard Coder, Dream Coding Ellie</span>
+                                    </div>
+
+                                </>
+                            )
+                        }
+
                         <CoinIconWrap>
                             <MarioIcon src={marioIcon} />
                             <CoinIconA src={coinIcon} />

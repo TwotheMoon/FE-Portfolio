@@ -1,5 +1,9 @@
 import styled from "styled-components";
-import ApexChart from "react-apexcharts";
+import htmlLogo from "../img/html5.png";
+import cssLogo from "../img/css3.png";
+import jsLogo from "../img/javascript.png";
+import reactLogo from "../img/reactLogo.png";
+import ApexChart from "./ApexChart";
 
 const Section = styled.div`
     width: 100%;
@@ -8,31 +12,43 @@ const Section = styled.div`
 `;
 
 const Contents = styled.div`
-    margin-top: 50px;
+   height: 100%;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
 `;
+
+const ChartWrap = styled.div`
+    width: 300px;
+    height: 300px;
+    border: 1px solid red;
+`;
+
 
 
 function Skills() {
 
     return (
         <Section>
-            <Contents>Skills</Contents>
-            <ApexChart
-                type="radialBar"
-                series={[70]}
-                options={{
-                    chart: {
-                        height: 30,
-                        width: 30,
-                        foreColor: "wheat",
-                        fontFamily: "NeoDunggeunmo",
-                    },
-                    labels: ['HTML'],
-                }}
+            <Contents>
+                <ChartWrap>
+                    <ApexChart logo={htmlLogo} percent={85} color={'#E44D26'} />
+                </ChartWrap>
+                <ChartWrap>
+                    <ApexChart logo={cssLogo} percent={70} color={'#2A9EFA'} />
+                </ChartWrap>
+                <ChartWrap>
+                    <ApexChart logo={jsLogo} percent={65} color={'#E6A329'} />
+                </ChartWrap>
+                <ChartWrap>
+                    <ApexChart logo={reactLogo} percent={70} color={'#61DAFB'} />
+                </ChartWrap>
+                <ChartWrap>
+                    <ApexChart logo={reactLogo} percent={70} color={'#61DAFB'} />
+                </ChartWrap>
 
-            >
-
-            </ApexChart>
+            </Contents>
         </Section >
     );
 }
