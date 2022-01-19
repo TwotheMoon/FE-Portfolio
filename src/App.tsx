@@ -2,13 +2,13 @@ import styled, { createGlobalStyle, ThemeProvider } from "styled-components";
 import { darkTheme, lightTheme } from "./theme";
 import { useRecoilValue } from "recoil";
 import { isDarkAtom } from "./atoms";
-import Hello from "./Hello";
-import AboutMe from "./AboutMe";
-import Skills from "./Skills";
-import Works from "./Works";
+import Hello from "./Components/Hello";
+import AboutMe from "./Components/AboutMe";
+import Skills from "./Components/Skills";
+import Works from "./Components/Works";
 import React, { useEffect, useRef, useState } from "react";
-import Dots from "./Dots";
-import Header from "./Header";
+import Dots from "./Components/Dots";
+import Header from "./Components/Header";
 
 const GlobalStyle = createGlobalStyle`
 @font-face {
@@ -104,6 +104,7 @@ function App() {
   const isDark = useRecoilValue(isDarkAtom);
   const outerDivRef = useRef<HTMLDivElement | any>();
   const [scrollIndex, setScrollIndex] = useState(1);
+
   const helloRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
   const skillsRef = useRef<HTMLDivElement>(null);

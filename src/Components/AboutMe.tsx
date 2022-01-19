@@ -1,20 +1,20 @@
 import styled, { keyframes } from "styled-components";
-import profileImg from "./img/profile.jpg";
-import dialogA from "./img/dialogA.png";
-import bottomImg from "./img/botImg.png";
-import user from "./img/user-solid.svg";
-import birth from "./img/birthday-cake-solid.svg";
-import address from "./img/map-marker-alt-solid.svg";
-import phone from "./img/mobile-android-alt-solid.svg";
-import email from "./img/envelope-solid.svg";
-import school from "./img/graduation-cap-solid.svg";
-import certificate from "./img/file-certificate-solid.svg";
-import moonPageQR from "./img/2theMoonPage.png";
-import moonGit from "./img/moongit.png";
-import coinIcon from "./img/pngwing.com.png";
-import marioIcon from "./img/mario.gif";
-import engelMushroom from "./img/engelMushroom.gif";
-import propelMushroom from "./img/propelMushroom.gif";
+import profileImg from "../img/profile.jpg";
+import dialogA from "../img/dialogA.png";
+import bottomImg from "../img/botImg.png";
+import user from "../img/user-solid.svg";
+import birth from "../img/birthday-cake-solid.svg";
+import address from "../img/map-marker-alt-solid.svg";
+import phone from "../img/mobile-android-alt-solid.svg";
+import email from "../img/envelope-solid.svg";
+import school from "../img/graduation-cap-solid.svg";
+import certificate from "../img/file-certificate-solid.svg";
+import moonPageQR from "../img/2theMoonPage.png";
+import moonGit from "../img/moongit.png";
+import coinIcon from "../img/pngwing.com.png";
+import marioIcon from "../img/mario.gif";
+import engelMushroom from "../img/engelMushroom.gif";
+import propelMushroom from "../img/propelMushroom.gif";
 
 const Section = styled.div`
     position: relative;

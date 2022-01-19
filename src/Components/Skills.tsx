@@ -19,12 +19,15 @@ function Skills() {
             <Contents>Skills</Contents>
             <ApexChart
                 type="radialBar"
-                series={[60]}
+                series={[70]}
                 options={{
                     chart: {
-                        height: 350,
+                        height: 30,
+                        width: 30,
+                        foreColor: "wheat",
+                        fontFamily: "NeoDunggeunmo",
                     },
-
+                    labels: ['HTML'],
                 }}
 
             >

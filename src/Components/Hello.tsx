@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import bgimg from "./img/helloBg.gif";
+import bgimg from "../img/helloBg.gif";
 import { Typing } from "typing-effect-reactjs";
 
 const Section = styled.div`
