@@ -385,7 +385,7 @@ function AboutMe() {
                                         <div>
                                             <span>2020.11 ~ </span> <br />
                                             <IconImg src={shield} />
-                                            <span>정보보호학 학사 전공</span>
+                                            <span>정보보호학 학사 전공 중</span>
                                         </div><br />
                                         <div>
                                             <span>Always Studing </span> <br />

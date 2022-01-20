@@ -16,6 +16,9 @@ function SubSkillsChart() {
                         foreColor: "wheat",
                         fontFamily: "apple",
                         height: 450,
+                        toolbar: {
+                            show: false,
+                        },
                     },
                     plotOptions: {
                         bar: {
@@ -62,7 +65,7 @@ function SubSkillsChart() {
                         floating: true
                     },
                     subtitle: {
-                        text: '하나 이상의 프로젝트로 경험 해본 언어 & 툴 입니다.',
+                        text: '하나 이상의 프로젝트로 경험 해본 언어 & 툴 입니다. 수치는 상대적 지표 입니다.',
                         align: 'center',
                     },
                     tooltip: {
