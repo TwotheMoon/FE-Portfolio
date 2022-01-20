@@ -1,4 +1,6 @@
 import styled, { keyframes } from "styled-components";
+import React, { useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 import profileImg from "../img/profile.jpg";
 import dialogA from "../img/dialogA.png";
 import bottomImg from "../img/botImg.png";
@@ -19,7 +21,8 @@ import reactBrands from "../img/react-brands.svg";
 import javaBrands from "../img/java-brands.svg";
 import shield from "../img/shield-duotone.svg";
 import youtube from "../img/youtube-brands.svg";
-import React, { useState } from "react";
+import pacman from "../img/pacmanIcon.png";
+import { QueryObserver } from "react-query";
 
 const Section = styled.div`
     width: 100%;
@@ -36,7 +39,6 @@ const Contents = styled.div`
     flex-direction: column;
     align-items: center;
  `;
-
 const ProfileWrap = styled.div`
     display: flex;
 
@@ -54,7 +56,6 @@ const ProfileImg = styled.div`
         margin-left: 20px;
         
     `;
-
 const PropleMushroom = styled.img`
     position: absolute;
     width: 50px;
@@ -72,7 +73,6 @@ const DialogA = styled.div`
         margin-top: 50px;
         
     `;
-
 const mushroomAnimation = keyframes`
         10%{
             transform: translateX(0px) rotateZ(20deg);
@@ -106,7 +106,6 @@ const mushroomAnimation = keyframes`
         }
 
     `;
-
 const EngelMushroom = styled.img`
     margin-top: 40px;
     margin-right: 30px;
@@ -114,7 +113,6 @@ const EngelMushroom = styled.img`
     height: 40px;
     animation: ${mushroomAnimation} 10s ease-in-out infinite;
     `;
-
 const About = styled.div`
     position: relative;
     width: 350px;
@@ -134,13 +132,11 @@ const IconImg = styled.img`
      height: 20px; 
      margin-right: 10px;
 `;
-
 const QrWrap = styled.div`
 margin-left: 100px;
 margin-top: -80px;
 `;
-
-const QrImgA = styled.img`
+const QrImgA = styled(motion.img)`
 position: absolute;
     width: 200px;
     height: 200px;
@@ -148,19 +144,25 @@ position: absolute;
     margin-left: 200px;
 
 `;
-const QrImgB = styled.img`
+const QrImgB = styled(motion.img)`
 position: absolute;
     width: 200px;
     height: 200px;
     user-select: none;
 
 `;
+const QrImgAFloat = styled(motion.img)`
+    user-select: none;
 
+`;
+const QrImgBFloat = styled(motion.img)`
+    user-select: none;
+
+`;
 const CoinIconWrap = styled.div`
     position: absolute;
     bottom: 80px;
 `;
-
 const coinAAnimation = keyframes`
    12%{
         transform: translateY(0px);
@@ -189,7 +191,6 @@ const coinBAnimation = keyframes`
         transform: translateY(0px);
     }
 `;
-
 const CoinIconA = styled.img`
  width: 40px;
  height: 40px;
@@ -207,7 +208,6 @@ const CoinIcon = styled.img`
  height: 40px;
  margin-bottom: 40px;
 `;
-
 const marioAnimation = keyframes`
     0%{
         transform: translateX(0px);
@@ -243,13 +243,11 @@ const marioAnimation = keyframes`
         transform: translateX(0px) scaleX(-1);
     }
 `;
-
 const MarioIcon = styled.img`
  width: 40px;
  height: 40px;
 animation: ${marioAnimation} 5s infinite;
 `;
-
 const BottomImg = styled.div`
     width: 100%;
     height: 150px;
@@ -266,7 +264,6 @@ position: absolute;
 top: 42px;
 margin-left: 46px;
 `;
-
 const Tap = styled.button <{ active: boolean }> `
     font-family: "NeoDunggeunmo";
     font-size: 15px;
@@ -278,9 +275,31 @@ const Tap = styled.button <{ active: boolean }> `
     border-top-right-radius: 10px;
     margin-right: 5px;
     cursor: pointer;
+    position: relative;
 
 `;
-
+const Circle = styled(motion.img)`
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -25px;
+`;
+const Overlay = styled(motion.div)`
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+`;
+const HugeText = styled.span`
+    position: relative;
+    top: 180px;
+    z-index: -1;
+`;
 
 function AboutMe() {
     const [active, setActive] = useState(0);
@@ -289,15 +308,14 @@ function AboutMe() {
         if (active === 1) {
             setActive(0);
         }
-        console.log(active);
     });
     const activeTab2 = (() => {
         if (active === 1) return;
         if (active === 0) {
             setActive(1);
         }
-        console.log(active);
     });
+    const [id, setId] = useState<null | string>(null);
 
     return (
         <Section>
@@ -306,8 +324,14 @@ function AboutMe() {
                     <EngelMushroom src={engelMushroom} />
                     <DialogA>
                         <TapWrap>
-                            <Tap onClick={activeTab1} active={active === 0}>About Me</Tap>
-                            <Tap onClick={activeTab2} active={active === 1}>Education</Tap>
+                            <Tap onClick={activeTab1} active={active === 0}>
+                                About Me
+                                {active === 0 ? <Circle src={pacman} layoutId="circle" /> : null}
+                            </Tap>
+                            <Tap onClick={activeTab2} active={active === 1}>
+                                Education
+                                {active === 1 ? <Circle src={pacman} style={{ scaleX: -1 }} layoutId="circle" /> : null}
+                            </Tap>
                         </TapWrap>
                         <About>
                             {active === 0 ?
@@ -384,15 +408,36 @@ function AboutMe() {
                         <PropleMushroom src={propelMushroom} />
                     </ProfileImg>
                 </ProfileWrap>
+                <AnimatePresence>
+                    {id === "qr1" ?
+                        <Overlay
+                            onClick={() => setId(null)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <QrImgAFloat layoutId="qr1" style={{ width: 500, height: 500, zIndex: 1 }} src={moonPageQR} />
+                        </Overlay> : null}
+                    {id === "qr2" ?
+                        <Overlay
+                            onClick={() => setId(null)}
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                        >
+                            <QrImgBFloat layoutId="qr2" style={{ width: 500, height: 500, zIndex: 0 }} src={moonGit} />
+                        </Overlay> : null}
+                </AnimatePresence>
                 <QrWrap>
-                    <QrImgA src={moonPageQR} />
-                    <QrImgB src={moonGit} />
+                    <HugeText>Click to make it huge. ▶</HugeText>
+                    <QrImgA layoutId="qr1" onClick={() => setId("qr1")} src={moonPageQR} />
+                    <QrImgB layoutId="qr2" onClick={() => setId("qr2")} src={moonGit} />
                 </QrWrap>
                 <div>
                     <BottomImg />
                 </div>
             </Contents>
-        </Section>
+        </Section >
     );
 }
 

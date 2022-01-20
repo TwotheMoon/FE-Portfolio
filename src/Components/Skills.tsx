@@ -20,8 +20,8 @@ const Section = styled.div`
 `;
 
 const Contents = styled.div`
-   width: 1100px;
-   height: 750px;
+   width: 100%;
+   height:85vh;
    display: flex;
     align-items: center;
     justify-content: center;
@@ -91,10 +91,12 @@ const Button = styled.button`
     font-weight: bold;
     color: black;
     top: 0px;
-    right: -2px;
+    right: 0px;
     background-color: silver;
     cursor: pointer;
     font-family: "NeoDunggeunmo";
+    border: none;
+    border-bottom-left-radius: 20px;
 `;
 const ComputerImg = styled.img`
     position: absolute;
