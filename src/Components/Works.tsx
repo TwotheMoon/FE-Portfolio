@@ -47,11 +47,11 @@ const ButtonWrap = styled.button`
 `;
 
 const box = {
-    invisible: {
-        x: window.innerWidth,
+    invisible: (back: boolean) => ({
+        x: back ? -window.innerWidth : window.innerWidth,
         opacity: 0,
         scale: 0,
-    },
+    }),
     visible: {
         x: 0,
         opacity: 1,
@@ -60,18 +60,18 @@ const box = {
             duration: 1,
         },
     },
-    exit: {
-        x: -window.innerWidth,
+    exit: (back: boolean) => ({
+        x: back ? window.innerWidth : -window.innerWidth,
         opacity: 0,
         scale: 0,
         transition: {
             duration: 1,
         },
-    },
+    }),
 }
 
 const WorkBox = styled(motion.div)`
-    width: 300px;
+    width: 1000px;
     height: 750px;
     border:1px solid red;
     position: absolute;
@@ -79,11 +79,20 @@ const WorkBox = styled(motion.div)`
 
 function Works() {
     const [index, setIndex] = useState(0);
+    const [back, setBack] = useState(false);
     const incrementIndex = () => {
         if (index === 3) {
             setIndex(0);
         }
+        setBack(false);
         setIndex((prev) => prev + 1)
+    }
+    const decrementIndex = () => {
+        if (index === 0) {
+            setIndex(3);
+        }
+        setBack(true);
+        setIndex((prev) => prev - 1)
     }
     useEffect(() => {
         if (index === 3) {
@@ -97,18 +106,18 @@ function Works() {
             <Section>
                 <WindowBg src={retroWindow} />
                 <WorkWrap>
-                    <ButtonWrap onClick={incrementIndex}>
+                    <ButtonWrap onClick={decrementIndex}>
                         <i className="fas fa-chevron-left fa-2x" />
                     </ButtonWrap>
-                    <AnimatePresence>
+                    <AnimatePresence custom={back}>
                         {index === 0 &&
-                            <WorkBox key="1" variants={box} initial="invisible" animate="visible" exit="exit">1111</WorkBox>
+                            <WorkBox custom={back} key="1" variants={box} initial="invisible" animate="visible" exit="exit">1111</WorkBox>
                         }
                         {index === 1 &&
-                            <WorkBox key="2" variants={box} initial="invisible" animate="visible" exit="exit">2222</WorkBox>
+                            <WorkBox custom={back} key="2" variants={box} initial="invisible" animate="visible" exit="exit">2222</WorkBox>
                         }
                         {index === 2 &&
-                            <WorkBox key="3" variants={box} initial="invisible" animate="visible" exit="exit">3333</WorkBox>
+                            <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">3333</WorkBox>
                         }
                     </AnimatePresence>
                     <ButtonWrap onClick={incrementIndex}>
