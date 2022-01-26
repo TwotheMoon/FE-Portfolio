@@ -1,5 +1,5 @@
 import styled, { keyframes } from "styled-components";
-import React, { useState } from "react";
+import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import profileImg from "../img/profile.jpg";
 import dialogA from "../img/dialogA.png";
@@ -22,7 +22,6 @@ import javaBrands from "../img/java-brands.svg";
 import shield from "../img/shield-duotone.svg";
 import youtube from "../img/youtube-brands.svg";
 import pacman from "../img/pacmanIcon.png";
-import { QueryObserver } from "react-query";
 
 const Section = styled.div`
     width: 100%;
