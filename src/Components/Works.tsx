@@ -97,25 +97,15 @@ const WorkTitle = styled.h1`
 const WorkImg = styled(motion.img)`
     width: 350px;
     border-radius: 20px;
-    z-index: 0;
 `;
 
 const Descript = styled(motion.div)`
     width: 350px;
     height: 620px;
     border-radius: 20px;
-    position: absolute;
-    border: 1px solid red;
-    z-index: 1;
+    border: 5px solid #2f3640;
     background-color: white;
-`;
-
-const OverLay = styled(motion.div)`
-width: 350px;
-    height: 620px;
-    border-radius: 20px;
-    position: absolute;
-    z-index: 99;
+    transform-origin: center left;
 `;
 
 function Works() {
@@ -141,18 +131,6 @@ function Works() {
             setIndex(0);
         }
     }, [index])
-    const onFlip = () => {
-        setFlip(true);
-    }
-    const offFlip = () => {
-        setFlip(false);
-    }
-    useEffect(() => {
-        const onFlip = () => {
-            setFlip(true);
-        }
-    }, [flip])
-    console.log(flip);
     return (
         <>
             <Section>
@@ -170,29 +148,20 @@ function Works() {
                         {index === 1 &&
                             <WorkBox custom={back} key="1" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrap>
-                                    <OverLay onHoverStart={onFlip} onHoverEnd={offFlip} />
-                                    <AnimatePresence>
-                                        {!flip ?
-                                            <WorkImg
-                                                src={findSrc}
-                                                initial={{ opacity: 0, scaleX: -1 }}
-                                                animate={{ opacity: 1, scaleX: 1 }}
-                                                exit={{ opacity: 0, scaleX: -1 }}
-                                                layoutId="flip"
-                                                transition={{ type: "tween" }}
-                                            />
-                                            :
-                                            <Descript
-                                                initial={{ opacity: 0, scaleX: -1 }}
-                                                animate={{ opacity: 1, scaleX: 1 }}
-                                                exit={{ opacity: 0, scaleX: -1 }}
-                                                layoutId="flip"
-                                                transition={{ type: "tween" }}
-                                            >
-                                                자세한 설명은 생략한다.
-                                            </Descript>
-                                        }
-                                    </AnimatePresence>
+                                    <WorkImg
+                                        src={findSrc}
+                                    />
+                                    <Descript
+                                        initial={{ rotateY: 180 }}
+                                        animate={{ rotateY: 0 }}
+                                        transition={{ delay: 1, duration: 1 }}
+                                    >
+                                        <motion.div
+                                            initial={{ opacity: 0 }}
+                                            animate={{ opacity: 1 }}
+                                            transition={{ delay: 1.5 }}
+                                        >sdfsadfasdf</motion.div>
+                                    </Descript>
                                 </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
