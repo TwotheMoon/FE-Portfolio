@@ -8,6 +8,7 @@ import css from "../img/css3.png";
 import javaScriopt from "../img/javascript.png";
 import react from "../img/reactLogo.png";
 import typeScript from "../img/TypescriptLogo.png";
+import { type } from "os";
 
 const Section = styled.div`
     width: 100%;
@@ -98,20 +99,67 @@ const WorkImg = styled(motion.img)`
     width: 350px;
     border-radius: 20px;
 `;
+const BorderLine = styled(motion.div)`
+    width: 320px;
+    height: 590px;
+    border: 2px dashed brown;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
+`;
+const SpeakMaker = styled(motion.div)`
+    margin-top: 30px;
+    width: 50px;
+    height: 15px;
+    background-color: black;
+    border-radius: 20px;
+`;
+const InnerDescript = styled(motion.div)`
+    text-align: center;
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    h2{
+        font-size: 20px;
+        font-family: "GmarketSansMedium";
+        font-weight: bold;
+    }
+    p{
+        font-size: 15px;
+        margin-top: 20px;
+        font-family: "GmarketSansMedium";
+    }
+`;
+const SkillLogoWrap = styled(motion.div)`
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    position: absolute;
+    bottom: 30px;
+img{
+    width: 50px;
+}
+`;
 
 const Descript = styled(motion.div)`
     width: 350px;
     height: 620px;
     border-radius: 20px;
     border: 5px solid #2f3640;
-    background-color: white;
+    background-color: burlywood;
     transform-origin: center left;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 `;
 
 function Works() {
     const [index, setIndex] = useState(0);
     const [back, setBack] = useState(false);
-    const [flip, setFlip] = useState(false);
     const incrementIndex = () => {
         if (index === 6) {
             setIndex(0);
@@ -154,13 +202,30 @@ function Works() {
                                     <Descript
                                         initial={{ rotateY: 180 }}
                                         animate={{ rotateY: 0 }}
-                                        transition={{ delay: 1, duration: 1 }}
+                                        transition={{ delay: 1.5, duration: 0.5 }}
                                     >
-                                        <motion.div
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            transition={{ delay: 1.5 }}
-                                        >sdfsadfasdf</motion.div>
+                                        <BorderLine>
+                                            <SpeakMaker
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1.5, duration: 0.3 }}
+                                            />
+                                            <InnerDescript
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.8, duration: 0.5 }}
+                                            >
+                                                <h2>요소수 재고 확인</h2>
+                                                <p>요소수 확인 어플 설명</p>
+                                                <SkillLogoWrap>
+                                                    <img src={html}></img>
+                                                    <img src={css}></img>
+                                                    <img src={javaScriopt}></img>
+                                                    <img src={react}></img>
+                                                    <img src={typeScript}></img>
+                                                </SkillLogoWrap>
+                                            </InnerDescript>
+                                        </BorderLine>
                                     </Descript>
                                 </WorkBoxDescriptWrap>
                             </WorkBox>
