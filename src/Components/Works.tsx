@@ -87,41 +87,41 @@ const WorkBox = styled(motion.div)`
 const WorkBoxDescriptWrap = styled.div`
     width: 100%;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
+    align-items: center;
 `;
 const WorkTitle = styled.h1`
     font-weight: bold;
     font-size: 23px;
 `;
-const WorkImg = styled.img`
+const WorkImg = styled(motion.img)`
     width: 350px;
     border-radius: 20px;
-    margin-left: 100px;
+    z-index: 0;
 `;
-const WorkDescript = styled.div`
-    width: 400px;
-    border: 1px solid red;
-    position: relative;
-    margin-right: 100px;
-    `;
-const WorkSkill = styled.div`
-    border: 1px solid green;
+
+const Descript = styled(motion.div)`
+    width: 350px;
+    height: 620px;
+    border-radius: 20px;
     position: absolute;
-    bottom: 80px;
-    display: flex;
+    border: 1px solid red;
+    z-index: 1;
+    background-color: white;
 `;
-const WorkSubSkill = styled.p`
- position: absolute;
-    bottom: 40px;
+
+const OverLay = styled(motion.div)`
+width: 350px;
+    height: 620px;
+    border-radius: 20px;
+    position: absolute;
+    z-index: 99;
 `;
-const SkillLogo = styled.img`   
-    width: 50px;
-    height: 50px;
-    margin: 0px 5px;
-`;
+
 function Works() {
     const [index, setIndex] = useState(0);
     const [back, setBack] = useState(false);
+    const [flip, setFlip] = useState(false);
     const incrementIndex = () => {
         if (index === 6) {
             setIndex(0);
@@ -141,7 +141,18 @@ function Works() {
             setIndex(0);
         }
     }, [index])
-
+    const onFlip = () => {
+        setFlip(true);
+    }
+    const offFlip = () => {
+        setFlip(false);
+    }
+    useEffect(() => {
+        const onFlip = () => {
+            setFlip(true);
+        }
+    }, [flip])
+    console.log(flip);
     return (
         <>
             <Section>
@@ -158,23 +169,30 @@ function Works() {
                         }
                         {index === 1 &&
                             <WorkBox custom={back} key="1" variants={box} initial="invisible" animate="visible" exit="exit">
-                                <WorkTitle>요소수 재고 </WorkTitle>
                                 <WorkBoxDescriptWrap>
-                                    <WorkImg src={findSrc} />
-                                    <WorkDescript>
-                                        설명설명.......
-                                        <WorkSkill>
-                                            <SkillLogo src={html} />
-                                            <SkillLogo src={css} />
-                                            <SkillLogo src={javaScriopt} />
-                                            <SkillLogo src={react} />
-                                            <SkillLogo src={typeScript} /> <br />
-                                        </WorkSkill>
-                                        <WorkSubSkill>
-                                            추가 라이브러리, Hooks <br />
-                                            useQuery
-                                        </WorkSubSkill>
-                                    </WorkDescript>
+                                    <OverLay onHoverStart={onFlip} onHoverEnd={offFlip} />
+                                    <AnimatePresence>
+                                        {!flip ?
+                                            <WorkImg
+                                                src={findSrc}
+                                                initial={{ opacity: 0, scaleX: -1 }}
+                                                animate={{ opacity: 1, scaleX: 1 }}
+                                                exit={{ opacity: 0, scaleX: -1 }}
+                                                layoutId="flip"
+                                                transition={{ type: "tween" }}
+                                            />
+                                            :
+                                            <Descript
+                                                initial={{ opacity: 0, scaleX: -1 }}
+                                                animate={{ opacity: 1, scaleX: 1 }}
+                                                exit={{ opacity: 0, scaleX: -1 }}
+                                                layoutId="flip"
+                                                transition={{ type: "tween" }}
+                                            >
+                                                자세한 설명은 생략한다.
+                                            </Descript>
+                                        }
+                                    </AnimatePresence>
                                 </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
