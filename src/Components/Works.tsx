@@ -8,7 +8,6 @@ import css from "../img/css3.png";
 import javaScriopt from "../img/javascript.png";
 import react from "../img/reactLogo.png";
 import typeScript from "../img/TypescriptLogo.png";
-import { type } from "os";
 
 const Section = styled.div`
     width: 100%;
@@ -131,6 +130,9 @@ const InnerDescript = styled(motion.div)`
         font-size: 15px;
         margin-top: 20px;
         font-family: "GmarketSansMedium";
+        text-align: left;
+        margin-left: 15px;
+        line-height: 1.8;
     }
 `;
 const SkillLogoWrap = styled(motion.div)`
@@ -157,9 +159,30 @@ const Descript = styled(motion.div)`
     align-items: center;
 `;
 
+const LinkCircle = styled(motion.div)`
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+    margin: 0 auto;
+    margin-top: 50px;
+    &:hover{
+        background: rgba(255, 255, 255, 0.8);
+    }
+`;
+const LinkInfo = styled(motion.div)`
+    height: 100%;
+`;
+
 function Works() {
     const [index, setIndex] = useState(0);
     const [back, setBack] = useState(false);
+    const [hover, setHover] = useState(false);
+    const whileHover = () => setHover(true);
+    const whileHoverEnd = () => setHover(false);
     const incrementIndex = () => {
         if (index === 6) {
             setIndex(0);
@@ -202,21 +225,41 @@ function Works() {
                                     <Descript
                                         initial={{ rotateY: 180 }}
                                         animate={{ rotateY: 0 }}
-                                        transition={{ delay: 1.5, duration: 0.5 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
                                     >
                                         <BorderLine>
                                             <SpeakMaker
                                                 initial={{ opacity: 1 }}
                                                 animate={{ opacity: 0 }}
-                                                transition={{ delay: 1.5, duration: 0.3 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
                                             />
                                             <InnerDescript
                                                 initial={{ opacity: 0 }}
                                                 animate={{ opacity: 1 }}
-                                                transition={{ delay: 1.8, duration: 0.5 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
                                             >
                                                 <h2>요소수 재고 확인</h2>
-                                                <p>요소수 확인 어플 설명</p>
+                                                <p>
+                                                    공공 데이터 api와 카카오맵을 이용해 제작 <br /><br />
+                                                    - 상태관리 Recoil을 이용한 데이터 관리 <br />
+                                                    - 타입스크립트를 이용해 데이터 타입 정의 <br />
+                                                    - UseQuery를 이용해 데이터 패치<br />
+                                                    - 카카오맵 마커에 모든 주유소 반복문 출력<br />
+                                                    - 마커 클릭시 해당 주유소 코드를 조회, <br />
+                                                    일치하는 주유소 데이터만 하단에 출력<br />
+                                                    - 스타일 컴포넌트를 이용 동적으로 css 변경
+                                                </p>
+                                                <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
+                                                    <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                        <i className="fas fa-home fa-lg"></i>
+                                                    </LinkCircle>
+                                                    <AnimatePresence>
+                                                        {hover ?
+                                                            <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                            : null
+                                                        }
+                                                    </AnimatePresence>
+                                                </a>
                                                 <SkillLogoWrap>
                                                     <img src={html}></img>
                                                     <img src={css}></img>
@@ -247,7 +290,59 @@ function Works() {
                         }
                         {index === 5 &&
                             <WorkBox custom={back} key="5" variants={box} initial="invisible" animate="visible" exit="exit">
-                                카카오톡
+                                <WorkBoxDescriptWrap>
+                                    <WorkImg
+                                        src={findSrc}
+                                    />
+                                    <Descript
+                                        initial={{ rotateY: 180 }}
+                                        animate={{ rotateY: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLine>
+                                            <SpeakMaker
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            />
+                                            <InnerDescript
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>이더문 톡</h2>
+                                                <p>
+                                                    바닐라 html, css를 이용해 카카오톡 제작 <br /><br />
+                                                    - 상태관리 Recoil을 이용한 데이터 관리 <br />
+                                                    - 타입스크립트를 이용해 데이터 타입 정의 <br />
+                                                    - UseQuery를 이용해 데이터 패치<br />
+                                                    - 카카오맵 마커에 모든 주유소 반복문 출력<br />
+                                                    - 마커 클릭시 해당 주유소 코드를 조회, <br />
+                                                    일치하는 주유소 데이터만 하단에 출력<br />
+                                                    - 스타일 컴포넌트를 이용 동적으로 css 변경
+                                                </p>
+                                                <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
+                                                    <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                        <i className="fas fa-home fa-lg"></i>
+                                                    </LinkCircle>
+                                                    <AnimatePresence>
+                                                        {hover ?
+                                                            <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                            : null
+                                                        }
+                                                    </AnimatePresence>
+                                                </a>
+                                                <SkillLogoWrap>
+                                                    <img src={html}></img>
+                                                    <img src={css}></img>
+                                                    <img src={javaScriopt}></img>
+                                                    <img src={react}></img>
+                                                    <img src={typeScript}></img>
+                                                </SkillLogoWrap>
+                                            </InnerDescript>
+                                        </BorderLine>
+                                    </Descript>
+                                </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
                     </AnimatePresence>
