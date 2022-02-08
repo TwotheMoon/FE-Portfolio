@@ -2,15 +2,17 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useEffect, useState } from "react";
 import styled from "styled-components";
 
-import monView from "../img/monView.png";
-import findSrc from "../img/srcImg.png";
-import moonTalk from "../img/moonTalk.png";
+import monView from "../img/monViewGif.gif";
+import findSrc from "../img/findScr.gif";
+import moonTalk from "../img/moonTalk.gif";
+import momentum from "../img/momentum.gif";
 import retroWindow from "../img/retroWindow.png";
 import html from "../img/html5.png";
 import css from "../img/css3.png";
 import javaScriopt from "../img/javascript.png";
 import react from "../img/reactLogo.png";
 import typeScript from "../img/TypescriptLogo.png";
+import nodeJs from "../img/nodejsIcon.png";
 
 const Section = styled.div`
     width: 100%;
@@ -95,6 +97,7 @@ const WorkBoxDescriptWrap = styled.div`
 `;
 const WorkImg = styled(motion.img)`
     width: 350px;
+    height: 620px;
     border-radius: 20px;
 `;
 const BorderLine = styled(motion.div)`
@@ -139,9 +142,8 @@ const SkillLogoWrap = styled(motion.div)`
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
-    position: absolute;
-    bottom: 30px;
-img{
+    margin-top: 50px;
+    img{
     width: 50px;
 }
 `;
@@ -157,15 +159,17 @@ const Descript = styled(motion.div)`
     align-items: center;
 `;
 const LinkCircle = styled(motion.div)`
-    width: 35px;
+    width: 100%;
     height: 35px;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s;
-    margin: 0 auto;
-    margin-top: 50px;
+    transition: 0.1s;
+    position: absolute;
+    bottom: 0;
+    border-bottom-right-radius: 20px;
+    border-bottom-left-radius: 20px;
+    background: rgba(255, 255, 255, 0.5);
     &:hover{
         background: rgba(255, 255, 255, 0.8);
     }
@@ -180,9 +184,17 @@ const WorkBoxDescriptWrapVer2 = styled.div`
     justify-content: center;
     align-items: center;
 `;
-const WorkImgVer2 = styled(motion.img)`
+const WorkImgWrap = styled(motion.div)`
     width: 700px;
+    height: 340px;
     border-radius: 20px;
+    background: black;
+    display: flex;
+    justify-content: center;
+`;
+const WorkImgVer2 = styled(motion.img)`
+    width: auto;
+    height: 340px;
 `;
 const DescriptVer2 = styled(motion.div)`
     border: 1px solid red;
@@ -259,15 +271,16 @@ const Partition = styled(motion.div)`
     `;
 const Partition1 = styled(motion.div)`
     width: 400px;
-    border: 1px solid green;
 `;
 const Partition2 = styled(motion.div)`
-    border: 1px solid red;
+   width: 350px;
 `;
 const SkillLogoWrapVer2 = styled(motion.div)`
     margin-top: 20px;
     display: flex;
     flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
     img{
         width: 50px;
     }
@@ -281,8 +294,24 @@ const LinkCircleVer2 = styled(motion.div)`
     align-items: center;
     transition: 0.3s;
     margin: 0 auto;
+    margin-top: 30px;
     &:hover{
-        background: rgba(255, 255, 255, 0.8);
+        background: rgba(255, 255, 255, 1);
+    }
+`;
+const HookInfo = styled.div`
+
+    h6{
+        margin-top: 40px;
+        margin-bottom: 15px;
+        font-size: 17px;
+        font-family: "GmarketSansMedium";
+        font-weight: bold;
+    }
+    span{
+        font-size: 13px;
+        font-family: "GmarketSansMedium";
+        line-height: 15px;
     }
 `;
 
@@ -320,12 +349,15 @@ function Works() {
                         <i className="fas fa-chevron-left fa-2x" />
                     </ButtonWrap>
                     <AnimatePresence custom={back}>
+                        {/* MonView */}
                         {index === 0 &&
                             <WorkBox custom={back} key="0" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrapVer2>
-                                    <WorkImgVer2
-                                        src={monView}
-                                    />
+                                    <WorkImgWrap>
+                                        <WorkImgVer2
+                                            src={monView}
+                                        />
+                                    </WorkImgWrap>
                                     <DescriptVer2
                                         initial={{ rotateX: 180 }}
                                         animate={{ rotateX: 0 }}
@@ -350,14 +382,13 @@ function Works() {
                                                     <Partition1>
 
                                                         <p>
-                                                            React 의 여러 훅과 TypeScript를 이용해 <br />
-                                                            - 상태관리 Recoil을 이용한 데이터 관리 <br />
-                                                            - 타입스크립트를 이용해 데이터 타입 정의 <br />
-                                                            - UseQuery를 이용해 데이터 패치<br />
-                                                            - 카카오맵 마커에 모든 주유소 반복문 출력<br />
-                                                            - 마커 클릭시 해당 주유소 코드를 조회, <br />
-                                                            일치하는 주유소 데이터만 하단에 출력<br />
-                                                            - 스타일 컴포넌트를 이용 동적으로 css 변경
+                                                            React와 motion을 이용한 영상 스트리밍 사이트 <br /><br />
+                                                            - motion을 이용한 애니메이션 로직 고민 및 구현 <br />
+                                                            - Recoil을 이용한 상태 관리 <br />
+                                                            - api를 이용한 검색 기능 구현 <br />
+                                                            - slider를 컴포넌트화 시켜 props를 <br />
+                                                            이용해 여러 종류 slider 구현 <br />
+                                                            - 약관동의 모두선택 state를 통해 구현<br />
                                                         </p>
                                                     </Partition1>
                                                     <Partition2>
@@ -367,18 +398,25 @@ function Works() {
                                                             <img src={javaScriopt}></img>
                                                             <img src={react}></img>
                                                             <img src={typeScript}></img>
+                                                            <img src={nodeJs}></img>
                                                         </SkillLogoWrapVer2>
-                                                        <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
-                                                            <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                        <HookInfo>
+                                                            <h6>Hooks & Library</h6>
+                                                            <span>
+                                                                useState, ReactQuery, Recoil, ReactRouter, ReactPlayer, FramerMotion
+                                                            </span>
+                                                        </HookInfo>
+                                                        <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                            <a href={"https://twothemoon.github.io/react-MonView/"} target="_blank">
                                                                 <i className="fas fa-home fa-lg"></i>
-                                                            </LinkCircleVer2>
-                                                            <AnimatePresence>
-                                                                {hover ?
-                                                                    <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
-                                                                    : null
-                                                                }
-                                                            </AnimatePresence>
-                                                        </a>
+                                                            </a>
+                                                        </LinkCircleVer2>
+                                                        <AnimatePresence>
+                                                            {hover ?
+                                                                <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                                : null
+                                                            }
+                                                        </AnimatePresence>
                                                     </Partition2>
                                                 </Partition>
                                             </InnerDescriptVer2>
@@ -387,6 +425,8 @@ function Works() {
                                 </WorkBoxDescriptWrapVer2>
                             </WorkBox>
                         }
+
+                        {/* 요소수 */}
                         {index === 1 &&
                             <WorkBox custom={back} key="1" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrap>
@@ -420,17 +460,6 @@ function Works() {
                                                     일치하는 주유소 데이터만 하단에 출력<br />
                                                     - 스타일 컴포넌트를 이용 동적으로 css 변경
                                                 </p>
-                                                <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
-                                                    <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
-                                                        <i className="fas fa-home fa-lg"></i>
-                                                    </LinkCircle>
-                                                    <AnimatePresence>
-                                                        {hover ?
-                                                            <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
-                                                            : null
-                                                        }
-                                                    </AnimatePresence>
-                                                </a>
                                                 <SkillLogoWrap>
                                                     <img src={html}></img>
                                                     <img src={css}></img>
@@ -438,27 +467,107 @@ function Works() {
                                                     <img src={react}></img>
                                                     <img src={typeScript}></img>
                                                 </SkillLogoWrap>
+                                                <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
+                                                    <LinkCircle>
+                                                        <i className="fas fa-home fa-lg"></i>
+                                                    </LinkCircle>
+                                                </a>
                                             </InnerDescript>
                                         </BorderLine>
                                     </Descript>
                                 </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
+
+                        {/* Repair Moon */}
                         {index === 2 &&
                             <WorkBox custom={back} key="2" variants={box} initial="invisible" animate="visible" exit="exit">
                                 랜딩페이지1
                             </WorkBox>
                         }
+
+                        {/*  */}
                         {index === 3 &&
                             <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">
                                 랜딩페이지2
                             </WorkBox>
                         }
+
+                        {/* Momentum */}
                         {index === 4 &&
                             <WorkBox custom={back} key="4" variants={box} initial="invisible" animate="visible" exit="exit">
-                                모멘텀
+                                <WorkBoxDescriptWrapVer2>
+                                    <WorkImgWrap>
+                                        <WorkImgVer2
+                                            src={momentum}
+                                        />
+                                    </WorkImgWrap>
+                                    <DescriptVer2
+                                        initial={{ rotateX: 180 }}
+                                        animate={{ rotateX: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLineVer2>
+                                            <Camera
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            >
+                                                <Lens />
+                                                <Flash />
+                                            </Camera>
+                                            <InnerDescriptVer2
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>MomentumApp</h2>
+                                                <Partition>
+                                                    <Partition1>
+
+                                                        <p>
+                                                            크롬 모멘텀 앱 구현 <br /><br />
+                                                            - motion을 이용한 애니메이션 로직 고민 및 구현 <br />
+                                                            - Recoil을 이용한 상태 관리 <br />
+                                                            - api를 이용한 검색 기능 구현 <br />
+                                                            - slider를 컴포넌트화 시켜 props를 <br />
+                                                            이용해 여러 종류 slider 구현 <br />
+                                                            - 약관동의 모두선택 state를 통해 구현<br />
+                                                        </p>
+                                                    </Partition1>
+                                                    <Partition2>
+                                                        <SkillLogoWrapVer2>
+                                                            <img src={html}></img>
+                                                            <img src={css}></img>
+                                                            <img src={javaScriopt}></img>
+                                                        </SkillLogoWrapVer2>
+                                                        <HookInfo>
+                                                            <h6>Hooks & Library</h6>
+                                                            <span>
+                                                                useState, ReactQuery, Recoil, ReactRouter, ReactPlayer, FramerMotion
+                                                            </span>
+                                                        </HookInfo>
+                                                        <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                            <a href={"https://twothemoon.github.io/react-MonView/"} target="_blank">
+                                                                <i className="fas fa-home fa-lg"></i>
+                                                            </a>
+                                                        </LinkCircleVer2>
+                                                        <AnimatePresence>
+                                                            {hover ?
+                                                                <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                                : null
+                                                            }
+                                                        </AnimatePresence>
+                                                    </Partition2>
+                                                </Partition>
+                                            </InnerDescriptVer2>
+                                        </BorderLineVer2>
+                                    </DescriptVer2>
+                                </WorkBoxDescriptWrapVer2>
                             </WorkBox>
                         }
+
+                        {/* 2theMoon Talk */}
                         {index === 5 &&
                             <WorkBox custom={back} key="5" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrap>
@@ -499,12 +608,6 @@ function Works() {
                                                     <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
                                                         <i className="fas fa-home fa-lg"></i>
                                                     </LinkCircle>
-                                                    <AnimatePresence>
-                                                        {hover ?
-                                                            <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
-                                                            : null
-                                                        }
-                                                    </AnimatePresence>
                                                 </a>
                                                 <SkillLogoWrap>
                                                     <img src={html}></img>
