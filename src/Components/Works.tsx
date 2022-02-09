@@ -4,6 +4,7 @@ import styled from "styled-components";
 
 import monView from "../img/monViewGif.gif";
 import findSrc from "../img/findScr.gif";
+import repairMoon from "../img/repairMoon.gif";
 import moonTalk from "../img/moonTalk.gif";
 import momentum from "../img/momentum.gif";
 import retroWindow from "../img/retroWindow.png";
@@ -322,7 +323,7 @@ function Works() {
     const whileHover = () => setHover(true);
     const whileHoverEnd = () => setHover(false);
     const incrementIndex = () => {
-        if (index === 6) {
+        if (index === 7) {
             setIndex(0);
         }
         setBack(false);
@@ -330,13 +331,13 @@ function Works() {
     }
     const decrementIndex = () => {
         if (index === 0) {
-            setIndex(6);
+            setIndex(7);
         }
         setBack(true);
         setIndex((prev) => prev - 1)
     }
     useEffect(() => {
-        if (index === 6) {
+        if (index === 7) {
             setIndex(0);
         }
     }, [index])
@@ -403,7 +404,7 @@ function Works() {
                                                         <HookInfo>
                                                             <h6>Hooks & Library</h6>
                                                             <span>
-                                                                useState, ReactQuery, Recoil, ReactRouter, ReactPlayer, FramerMotion
+                                                                ReactQuery, StyledComponent, Recoil, ReactRouter, ReactPlayer, FramerMotion
                                                             </span>
                                                         </HookInfo>
                                                         <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
@@ -482,7 +483,75 @@ function Works() {
                         {/* Repair Moon */}
                         {index === 2 &&
                             <WorkBox custom={back} key="2" variants={box} initial="invisible" animate="visible" exit="exit">
-                                랜딩페이지1
+                                <WorkBoxDescriptWrapVer2>
+                                    <WorkImgWrap>
+                                        <WorkImgVer2
+                                            src={repairMoon}
+                                        />
+                                    </WorkImgWrap>
+                                    <DescriptVer2
+                                        initial={{ rotateX: 180 }}
+                                        animate={{ rotateX: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLineVer2>
+                                            <Camera
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            >
+                                                <Lens />
+                                                <Flash />
+                                            </Camera>
+                                            <InnerDescriptVer2
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>Repair Moon - 악기 리페어 샵</h2>
+                                                <Partition>
+                                                    <Partition1>
+
+                                                        <p>
+                                                            React를 활용한 렌딩 페이지 입니다. <br /><br />
+                                                            - background-attachment 배경 레이어<br />
+                                                            - scrollY 감지를 이용한 메뉴버튼 애니메이션<br />
+                                                            - 바닐라 js execCommand()메소드 활용 <br />
+                                                            버튼 클릭시 클립보드 복사 기능 구현 <br />
+                                                            - Router 기능 없이 레이어를 통한 SPA <br />
+                                                            - svg를 이용하여 아이콘에 동적인 효과
+                                                        </p>
+                                                    </Partition1>
+                                                    <Partition2>
+                                                        <SkillLogoWrapVer2>
+                                                            <img src={html}></img>
+                                                            <img src={css}></img>
+                                                            <img src={javaScriopt}></img>
+                                                            <img src={react}></img>
+                                                        </SkillLogoWrapVer2>
+                                                        <HookInfo>
+                                                            <h6>Hooks & Library</h6>
+                                                            <span>
+                                                                Recoil, FramerMotion, StyledComponent
+                                                            </span>
+                                                        </HookInfo>
+                                                        <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                            <a href={"https://twothemoon.github.io/randingPage-ReapaireMoon/"} target="_blank">
+                                                                <i className="fas fa-home fa-lg"></i>
+                                                            </a>
+                                                        </LinkCircleVer2>
+                                                        <AnimatePresence>
+                                                            {hover ?
+                                                                <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                                : null
+                                                            }
+                                                        </AnimatePresence>
+                                                    </Partition2>
+                                                </Partition>
+                                            </InnerDescriptVer2>
+                                        </BorderLineVer2>
+                                    </DescriptVer2>
+                                </WorkBoxDescriptWrapVer2>
                             </WorkBox>
                         }
 
@@ -617,6 +686,13 @@ function Works() {
                                         </BorderLine>
                                     </Descript>
                                 </WorkBoxDescriptWrap>
+                            </WorkBox>
+                        }
+
+                        {/* 문 스몰 샾 */}
+                        {index === 6 &&
+                            <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">
+                                문 스몰 샾
                             </WorkBox>
                         }
                     </AnimatePresence>

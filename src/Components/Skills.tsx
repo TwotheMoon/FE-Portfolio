@@ -47,7 +47,7 @@ const Title = styled.div`
 `;
 
 const ChartWrap = styled.div`
-    width: 350px;
+    width: 400px;
     height: 290px;
 `;
 const SubChartWrap = styled.div`
