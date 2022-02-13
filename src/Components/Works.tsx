@@ -481,15 +481,21 @@ function Works() {
                                             >
                                                 <h2>요소수 재고 확인</h2>
                                                 <p>
-                                                    공공 데이터 api와 카카오맵을 이용해 제작 <br /><br />
+                                                    환경부 제공 api와 카카오맵을 이용해 제작 <br /><br />
                                                     - Recoil 글로벌 상태관리를 통한 다크모드 <br />
                                                     - 타입스크립트를 이용해 데이터 타입 정의 <br />
                                                     - UseQuery를 이용해 데이터 패치<br />
                                                     - 카카오맵 마커에 모든 주유소 반복문 출력<br />
                                                     - 마커 클릭시 해당 주유소 코드를 조회, <br />
                                                     일치하는 주유소 데이터만 하단에 출력<br />
-                                                    - 스타일 컴포넌트를 이용 동적으로 css 변경
+                                                    - 5분마다 데이터 ReFetch
                                                 </p>
+                                                <HookInfo>
+                                                    <h6>Hooks & Library</h6>
+                                                    <span>
+                                                        KakaoMap, 환경부 요소수 재고 api, Recoil, ReactQuery, StyledComponent
+                                                    </span>
+                                                </HookInfo>
                                                 <SkillLogoWrap>
                                                     <img src={html}></img>
                                                     <img src={css}></img>
@@ -508,7 +514,6 @@ function Works() {
                                 </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
-
                         {/* Repair Moon */}
                         {index === 2 &&
                             <WorkBox custom={back} key="2" variants={box} initial="invisible" animate="visible" exit="exit">
@@ -611,7 +616,7 @@ function Works() {
                                                 animate={{ opacity: 1 }}
                                                 transition={{ delay: 1.2, duration: 0.5 }}
                                             >
-                                                <h2>Repair Moon - 악기 리페어 샵</h2>
+                                                <h2>Team Moon - 싸이클 팀 랜딩 페이지</h2>
                                                 <Partition>
                                                     <Partition1>
                                                         <p>
@@ -634,7 +639,7 @@ function Works() {
                                                         <HookInfo>
                                                             <h6>Hooks & Library</h6>
                                                             <span>
-                                                                Recoil, FramerMotion, StyledComponent, reactPlayer
+                                                                Recoil, FramerMotion, StyledComponent, ReactPlayer
                                                             </span>
                                                         </HookInfo>
                                                         <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
@@ -691,13 +696,12 @@ function Works() {
 
                                                         <p>
                                                             크롬 모멘텀 앱 구현 <br /><br />
-                                                            - motion을 이용한 애니메이션 로직 고민 및 구현 <br />
-                                                            - Recoil을 이용한 상태 관리 <br />
-                                                            - api를 이용한 검색 기능 구현 <br />
-                                                            - slider를 컴포넌트화 시켜 props를 <br />
-                                                            이용해 여러 종류 slider 구현 <br />
-                                                            - 약관동의 모두선택 state를 통해 구현<br />
-                                                            - 노마드코더 챌린지 최우수 당선작
+                                                            - 노마드코더 챌린지 최우수 당선작 <br />
+                                                            - localStorage에 데이터 저장 및 읽기 <br />
+                                                            - youtubeApi로 실시간 채널 영상 출력 <br />
+                                                            - 바닐라 JS를 이용한 todoList & 시간표시 <br />
+                                                            - 배경이미지 배열로 만들어 렌더시 랜덤 출력 <br />
+                                                            - openWeatherMap Api로 현재 날씨 출력
                                                         </p>
                                                     </Partition1>
                                                     <Partition2>
@@ -707,13 +711,13 @@ function Works() {
                                                             <img src={javaScriopt}></img>
                                                         </SkillLogoWrapVer2>
                                                         <HookInfo>
-                                                            <h6>Hooks & Library</h6>
+                                                            <h6>Api & Library</h6>
                                                             <span>
-                                                                useState, ReactQuery, Recoil, ReactRouter, ReactPlayer, FramerMotion
+                                                                youtubeApi, localStorage, openWeatherMap
                                                             </span>
                                                         </HookInfo>
                                                         <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
-                                                            <a href={"https://twothemoon.github.io/react-MonView/"} target="_blank">
+                                                            <a href={"https://twothemoon.github.io/MomentumApp/"} target="_blank">
                                                                 <i className="fas fa-home fa-lg"></i>
                                                             </a>
                                                         </LinkCircleVer2>
@@ -765,13 +769,13 @@ function Works() {
                                                     <Partition1>
 
                                                         <p>
-                                                            개인 홈페이지 <br /><br />
+                                                            개인 홈페이지 입니다. <br /><br />
                                                             - jQuery toggleClass를 이용한 드롭다운 메뉴<br />
                                                             - jQuery fadeIn, fadeOut 화면전환 효과 <br />
                                                             - 라즈베리파이 리눅스 서버 제작 <br />
                                                             - iptime에서 제공해주는 DDNS를 이용해 도메인 생성<br />
                                                             - 포트포워딩과 고정 ip부여로 서버 연결<br />
-                                                            - Video페이지 모든 개인 영상 촬영 및 편집 <br />
+                                                            - Video 페이지 모든 개인 영상 촬영 및 편집 <br />
                                                         </p>
                                                     </Partition1>
                                                     <Partition2>
@@ -784,9 +788,9 @@ function Works() {
                                                             <img src={rinux}></img>
                                                         </SkillLogoWrapVer2>
                                                         <HookInfo>
-                                                            <h6>Hooks & Library</h6>
+                                                            <h6>Api & Library</h6>
                                                             <span>
-                                                                jQury, AOS, Raspbian
+                                                                jQury, AOS, Raspbian, PremierePro
                                                             </span>
                                                         </HookInfo>
                                                         <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
@@ -838,7 +842,7 @@ function Works() {
                                                     - css mediaQuery, keyFrames를<br />
                                                     이용한 동적 애니메이션 구현 <br />
                                                     - root css 파일에 각각 페이지의<br />
-                                                    css파일 임포트 하여 모듈화<br />
+                                                    css파일 임포트 하여 관리<br />
                                                     - 브라우저의 디폴트 css를 제거하기위해<br />
                                                     reset 코드 작성<br />
                                                     - 이후 작업물의 기초를 이 프로젝트를 통해<br />
@@ -884,7 +888,7 @@ function Works() {
                                                 animate={{ opacity: 1 }}
                                                 transition={{ delay: 1.2, duration: 0.5 }}
                                             >
-                                                <h2>스몰샵 문</h2>
+                                                <h2>Mini Shop Moon</h2>
                                                 <p>
                                                     Spring MVC + myBtis + OracleDB  <br /><br />
                                                     - Spring MVC 패턴으로 제작 <br />
@@ -896,7 +900,6 @@ function Works() {
                                                     - BCryptPasswordEncoder을 이용한 회원 비밀번호 인코딩 후 DB 저장 <br />
                                                     - 1인 개발로 프론트부터 백엔드 서버, <br />
                                                     ERD구조, 테이블모두 제작 하였습니다.
-
                                                 </p>
                                                 <SkillLogoWrapForJava>
                                                     <img src={html} />
