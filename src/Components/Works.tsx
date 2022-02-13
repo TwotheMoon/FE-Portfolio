@@ -412,7 +412,7 @@ function Works() {
                                                             React와 motion을 이용한 영상 스트리밍 사이트 <br /><br />
                                                             - motion을 이용한 애니메이션 로직 고민 및 구현 <br />
                                                             - Recoil을 이용한 상태 관리 <br />
-                                                            - api를 이용한 검색 기능 구현 <br />
+                                                            - api데이터 이용한 검색 기능 구현 <br />
                                                             - slider를 컴포넌트화 시켜 props를 <br />
                                                             이용해 여러 종류 slider 구현 <br />
                                                             - 약관동의 모두선택 state를 통해 구현<br />
@@ -479,7 +479,7 @@ function Works() {
                                                 <h2>요소수 재고 확인</h2>
                                                 <p>
                                                     공공 데이터 api와 카카오맵을 이용해 제작 <br /><br />
-                                                    - 상태관리 Recoil을 이용한 데이터 관리 <br />
+                                                    - Recoil 글로벌 상태관리를 통한 다크모드 <br />
                                                     - 타입스크립트를 이용해 데이터 타입 정의 <br />
                                                     - UseQuery를 이용해 데이터 패치<br />
                                                     - 카카오맵 마커에 모든 주유소 반복문 출력<br />
