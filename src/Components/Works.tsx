@@ -5,8 +5,10 @@ import styled from "styled-components";
 import monView from "../img/monViewGif.gif";
 import findSrc from "../img/findScr.gif";
 import repairMoon from "../img/repairMoon.gif";
+import teamMoon from "../img/teamMoon.gif";
 import moonTalk from "../img/moonTalk.gif";
 import momentum from "../img/momentum.gif";
+import shopMoon from "../img/shopMoonHome.png";
 import retroWindow from "../img/retroWindow.png";
 import html from "../img/html5.png";
 import css from "../img/css3.png";
@@ -14,6 +16,14 @@ import javaScriopt from "../img/javascript.png";
 import react from "../img/reactLogo.png";
 import typeScript from "../img/TypescriptLogo.png";
 import nodeJs from "../img/nodejsIcon.png";
+import jquery from "../img/jquery.png";
+import myBtis from "../img/myBtis.png";
+import spring from "../img/spring.png";
+import oracle from "../img/oracle.png";
+import aJax from "../img/aJax.png";
+import jsp from "../img/jspicon.png";
+import java from "../img/java.png";
+import eclipse from "../img/eclipse.png";
 
 const Section = styled.div`
     width: 100%;
@@ -315,6 +325,22 @@ const HookInfo = styled.div`
         line-height: 15px;
     }
 `;
+const SkillLogoWrapForJava = styled.div`
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(5, 5fr);
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+    img{
+        width: 50px;
+        margin: 0 auto;
+    };
+    img:nth-child(4){
+        height: 40px;
+    }
+`;
 
 function Works() {
     const [index, setIndex] = useState(0);
@@ -511,7 +537,6 @@ function Works() {
                                                 <h2>Repair Moon - 악기 리페어 샵</h2>
                                                 <Partition>
                                                     <Partition1>
-
                                                         <p>
                                                             React를 활용한 렌딩 페이지 입니다. <br /><br />
                                                             - background-attachment 배경 레이어<br />
@@ -555,10 +580,77 @@ function Works() {
                             </WorkBox>
                         }
 
-                        {/*  */}
+                        {/* Team Moon */}
                         {index === 3 &&
                             <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">
-                                랜딩페이지2
+                                <WorkBoxDescriptWrapVer2>
+                                    <WorkImgWrap>
+                                        <WorkImgVer2
+                                            src={teamMoon}
+                                        />
+                                    </WorkImgWrap>
+                                    <DescriptVer2
+                                        initial={{ rotateX: 180 }}
+                                        animate={{ rotateX: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLineVer2>
+                                            <Camera
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            >
+                                                <Lens />
+                                                <Flash />
+                                            </Camera>
+                                            <InnerDescriptVer2
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>Repair Moon - 악기 리페어 샵</h2>
+                                                <Partition>
+                                                    <Partition1>
+                                                        <p>
+                                                            React를 활용한 렌딩 페이지 입니다. <br /><br />
+                                                            - Css mediaQuery를 이용한 반응형<br />
+                                                            - 500px 모바일, 800px 태블릿, pc등 호환 <br />
+                                                            - ref와 scrollY , X 축 정보를 이용한 애니메이션 <br />
+                                                            - 유지보수를 위한 컴포넌트 Title, Nav,  <br />
+                                                            AboutUs, ContenctUs, Footer 등으로 모듈화 <br />
+                                                            - a mailto를 이용한 메일 링크 생성
+                                                        </p>
+                                                    </Partition1>
+                                                    <Partition2>
+                                                        <SkillLogoWrapVer2>
+                                                            <img src={html}></img>
+                                                            <img src={css}></img>
+                                                            <img src={javaScriopt}></img>
+                                                            <img src={react}></img>
+                                                        </SkillLogoWrapVer2>
+                                                        <HookInfo>
+                                                            <h6>Hooks & Library</h6>
+                                                            <span>
+                                                                Recoil, FramerMotion, StyledComponent, reactPlayer
+                                                            </span>
+                                                        </HookInfo>
+                                                        <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                            <a href={"https://twothemoon.github.io/randingPage-CycleTeam/"} target="_blank">
+                                                                <i className="fas fa-home fa-lg"></i>
+                                                            </a>
+                                                        </LinkCircleVer2>
+                                                        <AnimatePresence>
+                                                            {hover ?
+                                                                <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                                : null
+                                                            }
+                                                        </AnimatePresence>
+                                                    </Partition2>
+                                                </Partition>
+                                            </InnerDescriptVer2>
+                                        </BorderLineVer2>
+                                    </DescriptVer2>
+                                </WorkBoxDescriptWrapVer2>
                             </WorkBox>
                         }
 
@@ -602,6 +694,7 @@ function Works() {
                                                             - slider를 컴포넌트화 시켜 props를 <br />
                                                             이용해 여러 종류 slider 구현 <br />
                                                             - 약관동의 모두선택 state를 통해 구현<br />
+                                                            - 노마드코더 챌린지 최우수 당선작
                                                         </p>
                                                     </Partition1>
                                                     <Partition2>
@@ -692,7 +785,61 @@ function Works() {
                         {/* 문 스몰 샾 */}
                         {index === 6 &&
                             <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">
-                                문 스몰 샾
+                                <WorkBoxDescriptWrap>
+                                    <WorkImg
+                                        src={shopMoon}
+                                    />
+                                    <Descript
+                                        initial={{ rotateY: 180 }}
+                                        animate={{ rotateY: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLine>
+                                            <SpeakMaker
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            />
+                                            <InnerDescript
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>스몰샵 문</h2>
+                                                <p>
+                                                    Spring MVC + myBtis + OracleDB  <br /><br />
+                                                    - Spring MVC 패턴으로 제작 <br />
+                                                    - Iframe을 통한 유튜브 Api 사용 <br />
+                                                    - aJax를 통해 실사간 아이디 중복 확인<br />
+                                                    - 페이징 클래스를 만들어 번호 페이징 구현 <br />
+                                                    - 로그인시 세션에 회원정보 등록 <br />
+                                                    - Intercepter을 이용해 세션 값을 확인해 관리자 페이지 접근 제한 <br />
+                                                    - BCryptPasswordEncoder을 이용한 회원 비밀번호 인코딩 후 DB 저장 <br />
+                                                    - 1인 개발로 프론트부터 백엔드 서버, <br />
+                                                    ERD구조, 테이블모두 제작 하였습니다.
+
+                                                </p>
+                                                <a href={"https://twothemoon.github.io/2theMoontalk/"} target="_blank">
+                                                    <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                        <i className="fas fa-home fa-lg"></i>
+                                                    </LinkCircle>
+                                                </a>
+                                                <SkillLogoWrapForJava>
+                                                    <img src={html} />
+                                                    <img src={css} />
+                                                    <img src={jquery} />
+                                                    <img src={aJax} />
+                                                    <img src={java} />
+                                                    <img src={jsp} />
+                                                    <img src={spring} />
+                                                    <img src={myBtis} />
+                                                    <img src={oracle} />
+                                                    <img src={eclipse} />
+                                                </SkillLogoWrapForJava>
+                                            </InnerDescript>
+                                        </BorderLine>
+                                    </Descript>
+                                </WorkBoxDescriptWrap>
                             </WorkBox>
                         }
                     </AnimatePresence>
