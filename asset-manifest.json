@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/FE-Portfolio/static/js/main.b9525b6b.chunk.js",
-    "main.js.map": "/FE-Portfolio/static/js/main.b9525b6b.chunk.js.map",
+    "main.js": "/FE-Portfolio/static/js/main.9418c7ee.chunk.js",
+    "main.js.map": "/FE-Portfolio/static/js/main.9418c7ee.chunk.js.map",
     "runtime-main.js": "/FE-Portfolio/static/js/runtime-main.a92779c8.js",
     "runtime-main.js.map": "/FE-Portfolio/static/js/runtime-main.a92779c8.js.map",
     "static/css/2.19f2ac71.chunk.css": "/FE-Portfolio/static/css/2.19f2ac71.chunk.css",
@@ -11,6 +11,7 @@
     "static/css/2.19f2ac71.chunk.css.map": "/FE-Portfolio/static/css/2.19f2ac71.chunk.css.map",
     "static/js/2.227f869a.chunk.js.LICENSE.txt": "/FE-Portfolio/static/js/2.227f869a.chunk.js.LICENSE.txt",
     "static/media/2theMoonPage.cd18d4be.png": "/FE-Portfolio/static/media/2theMoonPage.cd18d4be.png",
+    "static/media/DevMusic.0d8aa1dd.gif": "/FE-Portfolio/static/media/DevMusic.0d8aa1dd.gif",
     "static/media/TypescriptLogo.eeb913e1.png": "/FE-Portfolio/static/media/TypescriptLogo.eeb913e1.png",
     "static/media/aJax.2bfb1c56.png": "/FE-Portfolio/static/media/aJax.2bfb1c56.png",
     "static/media/birthday-cake-solid.4c58fbdc.svg": "/FE-Portfolio/static/media/birthday-cake-solid.4c58fbdc.svg",
@@ -40,10 +41,12 @@
     "static/media/nodejsIcon.efa9c0b4.png": "/FE-Portfolio/static/media/nodejsIcon.efa9c0b4.png",
     "static/media/profile.de0a5fff.jpg": "/FE-Portfolio/static/media/profile.de0a5fff.jpg",
     "static/media/propelMushroom.756ef6c2.gif": "/FE-Portfolio/static/media/propelMushroom.756ef6c2.gif",
+    "static/media/razberrypi.b09fd041.png": "/FE-Portfolio/static/media/razberrypi.b09fd041.png",
     "static/media/react-brands.4e0c4c03.svg": "/FE-Portfolio/static/media/react-brands.4e0c4c03.svg",
     "static/media/reactLogo.20adfb35.png": "/FE-Portfolio/static/media/reactLogo.20adfb35.png",
     "static/media/repairMoon.48056e83.gif": "/FE-Portfolio/static/media/repairMoon.48056e83.gif",
     "static/media/retroWindow.cc8743ff.png": "/FE-Portfolio/static/media/retroWindow.cc8743ff.png",
+    "static/media/rinux.80ad4e72.png": "/FE-Portfolio/static/media/rinux.80ad4e72.png",
     "static/media/rockMan.02946f0c.gif": "/FE-Portfolio/static/media/rockMan.02946f0c.gif",
     "static/media/shield-duotone.b1b9087a.svg": "/FE-Portfolio/static/media/shield-duotone.b1b9087a.svg",
     "static/media/shopMoonHome.0cb17ef7.png": "/FE-Portfolio/static/media/shopMoonHome.0cb17ef7.png",
@@ -56,6 +59,6 @@
     "static/js/runtime-main.a92779c8.js",
     "static/css/2.19f2ac71.chunk.css",
     "static/js/2.227f869a.chunk.js",
-    "static/js/main.b9525b6b.chunk.js"
+    "static/js/main.9418c7ee.chunk.js"
   ]
 }
