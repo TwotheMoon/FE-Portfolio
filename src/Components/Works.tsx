@@ -24,6 +24,9 @@ import aJax from "../img/aJax.png";
 import jsp from "../img/jspicon.png";
 import java from "../img/java.png";
 import eclipse from "../img/eclipse.png";
+import DevMusic from "../img/DevMusic.gif";
+import pi from "../img/razberrypi.png";
+import rinux from "../img/rinux.png";
 
 const Section = styled.div`
     width: 100%;
@@ -349,7 +352,7 @@ function Works() {
     const whileHover = () => setHover(true);
     const whileHoverEnd = () => setHover(false);
     const incrementIndex = () => {
-        if (index === 7) {
+        if (index === 8) {
             setIndex(0);
         }
         setBack(false);
@@ -357,13 +360,13 @@ function Works() {
     }
     const decrementIndex = () => {
         if (index === 0) {
-            setIndex(7);
+            setIndex(8);
         }
         setBack(true);
         setIndex((prev) => prev - 1)
     }
     useEffect(() => {
-        if (index === 7) {
+        if (index === 8) {
             setIndex(0);
         }
     }, [index])
@@ -729,9 +732,85 @@ function Works() {
                             </WorkBox>
                         }
 
-                        {/* 2theMoon Talk */}
+                        {/* DevMoon */}
                         {index === 5 &&
                             <WorkBox custom={back} key="5" variants={box} initial="invisible" animate="visible" exit="exit">
+                                <WorkBoxDescriptWrapVer2>
+                                    <WorkImgWrap>
+                                        <WorkImgVer2
+                                            src={DevMusic}
+                                        />
+                                    </WorkImgWrap>
+                                    <DescriptVer2
+                                        initial={{ rotateX: 180 }}
+                                        animate={{ rotateX: 0 }}
+                                        transition={{ delay: 1, duration: 0.5 }}
+                                    >
+                                        <BorderLineVer2>
+                                            <Camera
+                                                initial={{ opacity: 1 }}
+                                                animate={{ opacity: 0 }}
+                                                transition={{ delay: 1, duration: 0.3 }}
+                                            >
+                                                <Lens />
+                                                <Flash />
+                                            </Camera>
+                                            <InnerDescriptVer2
+                                                initial={{ opacity: 0 }}
+                                                animate={{ opacity: 1 }}
+                                                transition={{ delay: 1.2, duration: 0.5 }}
+                                            >
+                                                <h2>Dev + Music Moon</h2>
+                                                <Partition>
+                                                    <Partition1>
+
+                                                        <p>
+                                                            개인 홈페이지 <br /><br />
+                                                            - jQuery toggleClass를 이용한 드롭다운 메뉴<br />
+                                                            - jQuery fadeIn, fadeOut 화면전환 효과 <br />
+                                                            - 라즈베리파이 리눅스 서버 제작 <br />
+                                                            - iptime에서 제공해주는 DDNS를 이용해 도메인 생성<br />
+                                                            - 포트포워딩과 고정 ip부여로 서버 연결<br />
+                                                            - Video페이지 모든 개인 영상 촬영 및 편집 <br />
+                                                        </p>
+                                                    </Partition1>
+                                                    <Partition2>
+                                                        <SkillLogoWrapVer2>
+                                                            <img src={html}></img>
+                                                            <img src={css}></img>
+                                                            <img src={javaScriopt}></img>
+                                                            <img src={jquery}></img>
+                                                            <img src={pi}></img>
+                                                            <img src={rinux}></img>
+                                                        </SkillLogoWrapVer2>
+                                                        <HookInfo>
+                                                            <h6>Hooks & Library</h6>
+                                                            <span>
+                                                                jQury, AOS, Raspbian
+                                                            </span>
+                                                        </HookInfo>
+                                                        <LinkCircleVer2 onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
+                                                            <a href={"http://2themoon.iptime.org/"} target="_blank">
+                                                                <i className="fas fa-home fa-lg"></i>
+                                                            </a>
+                                                        </LinkCircleVer2>
+                                                        <AnimatePresence>
+                                                            {hover ?
+                                                                <LinkInfo key={2} initial={{ y: 5, opacity: 0.5 }} animate={{ y: 0, opacity: 1 }} exit={{ y: 5, opacity: 0 }}>Hompage</LinkInfo>
+                                                                : null
+                                                            }
+                                                        </AnimatePresence>
+                                                    </Partition2>
+                                                </Partition>
+                                            </InnerDescriptVer2>
+                                        </BorderLineVer2>
+                                    </DescriptVer2>
+                                </WorkBoxDescriptWrapVer2>
+                            </WorkBox>
+                        }
+                        {/* 2theMoon Talk */}
+                        {index === 6 &&
+                            <WorkBox custom={back} key="6" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrap>
                                     <WorkImg
                                         src={moonTalk}
@@ -783,8 +862,8 @@ function Works() {
                         }
 
                         {/* 문 스몰 샾 */}
-                        {index === 6 &&
-                            <WorkBox custom={back} key="3" variants={box} initial="invisible" animate="visible" exit="exit">
+                        {index === 7 &&
+                            <WorkBox custom={back} key="7" variants={box} initial="invisible" animate="visible" exit="exit">
                                 <WorkBoxDescriptWrap>
                                     <WorkImg
                                         src={shopMoon}
