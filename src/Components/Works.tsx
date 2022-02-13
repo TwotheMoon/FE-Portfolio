@@ -332,7 +332,7 @@ const SkillLogoWrapForJava = styled.div`
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 10px;
+    margin-top: 25px;
     img{
         width: 50px;
         margin: 0 auto;
@@ -819,11 +819,6 @@ function Works() {
                                                     ERD구조, 테이블모두 제작 하였습니다.
 
                                                 </p>
-                                                <a href={"https://twothemoon.github.io/2theMoontalk/"} target="_blank">
-                                                    <LinkCircle onHoverStart={whileHover} onHoverEnd={whileHoverEnd}>
-                                                        <i className="fas fa-home fa-lg"></i>
-                                                    </LinkCircle>
-                                                </a>
                                                 <SkillLogoWrapForJava>
                                                     <img src={html} />
                                                     <img src={css} />
