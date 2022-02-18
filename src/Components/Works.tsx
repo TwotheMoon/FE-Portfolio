@@ -161,6 +161,16 @@ const SkillLogoWrap = styled(motion.div)`
     width: 50px;
 }
 `;
+const SkillLogoWrapSrc = styled(motion.div)`
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-top: 20px;
+    img{
+    width: 50px;
+}
+`;
 const Descript = styled(motion.div)`
     width: 350px;
     height: 620px;
@@ -497,13 +507,13 @@ function Works() {
                                                         KakaoMap, 환경부 요소수 재고 api, Recoil, ReactQuery, StyledComponent
                                                     </span>
                                                 </HookInfo>
-                                                <SkillLogoWrap>
+                                                <SkillLogoWrapSrc>
                                                     <img src={html}></img>
                                                     <img src={css}></img>
                                                     <img src={javaScriopt}></img>
                                                     <img src={react}></img>
                                                     <img src={typeScript}></img>
-                                                </SkillLogoWrap>
+                                                </SkillLogoWrapSrc>
                                                 <a href={"https://twothemoon.github.io/React_FindScr/"} target="_blank">
                                                     <LinkCircle>
                                                         <i className="fas fa-home fa-lg"></i>
