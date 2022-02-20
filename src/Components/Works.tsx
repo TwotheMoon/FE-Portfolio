@@ -558,6 +558,7 @@ function Works() {
                                                     <Partition1>
                                                         <p>
                                                             React를 활용한 렌딩 페이지 입니다. <br /><br />
+                                                            - 모바일, 태블릿, PC 반응형<br />
                                                             - background-attachment 배경 레이어<br />
                                                             - scrollY 감지를 이용한 메뉴버튼 애니메이션<br />
                                                             - 바닐라 js execCommand()메소드 활용 <br />
@@ -632,11 +633,11 @@ function Works() {
                                                     <Partition1>
                                                         <p>
                                                             React를 활용한 렌딩 페이지 입니다. <br /><br />
-                                                            - Css mediaQuery를 이용한 반응형<br />
-                                                            - 500px 모바일, 800px 태블릿, pc등 호환 <br />
+                                                            - 모바일, 태블릿, PC 반응형 <br />
                                                             - ref와 scrollY , X 축 정보를 이용한 애니메이션 <br />
                                                             - 유지보수를 위한 컴포넌트 Title, Nav,  <br />
                                                             AboutUs, ContenctUs, Footer 등으로 모듈화 <br />
+                                                            - ReactPlayer 유튜브 영상 배치 <br />
                                                             - a mailto를 이용한 메일 링크 생성
                                                         </p>
                                                     </Partition1>
