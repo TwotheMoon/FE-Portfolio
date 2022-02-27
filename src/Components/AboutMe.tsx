@@ -125,6 +125,9 @@ const About = styled.div`
         font-size: 18px;
         color: #F9EBDE;
     }
+    font-family: 'GmarketSansLight';
+    font-weight: bold;
+    font-size: 13px;
 `;
 const IconImg = styled.img`
     width: 20px;
@@ -387,7 +390,7 @@ function AboutMe() {
                                             <span>정보보호학 학사 전공 중</span>
                                         </div><br />
                                         <div>
-                                            <span>Always Studing </span> <br />
+                                            <span>Always Studing with</span> <br />
                                             <IconImg src={youtube} />
                                             <span>Nomard Coder, Dream Coding Ellie</span>
                                         </div>
